@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\marti\\Desktop\\Proyecto de POO\\ProyectoPOO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|C:\\Users\\marti\\Desktop\\Proyecto de POO\\ProyectoPOO\\proyectoaeropuerto\\models\\avion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|c:\\users\\marti\\desktop\\proyecto de poo\\proyectopoo\\proyectoaeropuerto\\models\\avion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\models\\avion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -128,9 +128,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|C:\\Users\\marti\\Desktop\\Proyecto de POO\\ProyectoPOO\\proyectoaeropuerto\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|c:\\users\\marti\\desktop\\proyecto de poo\\proyectopoo\\proyectoaeropuerto\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
     }
   ],
   "DocumentGroupContainers": [
@@ -150,7 +147,7 @@
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\Models\\Avion.cs",
               "ToolTip": "C:\\Users\\marti\\Desktop\\Proyecto de POO\\ProyectoPOO\\ProyectoAeropuerto\\Models\\Avion.cs",
               "RelativeToolTip": "ProyectoAeropuerto\\Models\\Avion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T03:10:25.866Z",
               "EditorCaption": ""
@@ -201,8 +198,7 @@
               "ToolTip": "C:\\Users\\marti\\Desktop\\Proyecto de POO\\ProyectoPOO\\ProyectoAeropuerto\\ProyectoAeropuerto.csproj",
               "RelativeToolTip": "ProyectoAeropuerto\\ProyectoAeropuerto.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-17T04:22:24.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T04:22:24.452Z"
             },
             {
               "$type": "Document",

@@ -10,7 +10,7 @@ namespace ProyectoAeropuerto.Models
 		public int AvionId { get; set; }
 		public int Capacidad { get; set; }
 		
-
+		public string Nombre { get; set; }
 		public Avion()
 		{
 
