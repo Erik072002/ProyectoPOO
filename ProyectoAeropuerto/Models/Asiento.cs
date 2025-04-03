@@ -10,7 +10,7 @@ namespace ProyectoAeropuerto.Models
 		public int AsientoId { get; set; }
 		public string Clase { get; set; }
 		public string NumeroAsiento { get; set; }
-		public Avion Avion;
+		public Avion Avion { get; set; } 
 
 
 		public Asiento() { }
