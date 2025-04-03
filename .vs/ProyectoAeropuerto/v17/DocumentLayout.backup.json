@@ -7,6 +7,13 @@
       "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\controllers\\asientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\proyectoaeropuerto\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|ProyectoAeropuerto||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\proyectoaeropuerto\\models\\asiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\models\\asiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,9 +26,6 @@
       "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\controllers\\avioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|ProyectoAeropuerto||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\proyectoaeropuerto\\app_start\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\app_start\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -32,10 +36,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\proyectoaeropuerto\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\proyectoaeropuerto\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|solutionrelative:proyectoaeropuerto\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A485F3F6-3CA0-40FD-AE1C-EF9473372CF5}|ProyectoAeropuerto\\ProyectoAeropuerto.csproj|C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\proyectoaeropuerto\\controllers\\pilotocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -141,7 +141,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Avion.cs",
               "DocumentMoniker": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\Models\\Avion.cs",
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\Models\\Avion.cs",
@@ -153,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Asiento.cs",
               "DocumentMoniker": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\Models\\Asiento.cs",
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\Models\\Asiento.cs",
@@ -171,27 +171,27 @@
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\Controllers\\AsientoController.cs",
               "ToolTip": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\Controllers\\AsientoController.cs",
               "RelativeToolTip": "ProyectoAeropuerto\\Controllers\\AsientoController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAACcAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAqwCYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T17:54:40.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\Web.config",
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\Web.config",
               "ToolTip": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\Web.config",
               "RelativeToolTip": "ProyectoAeropuerto\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-03-17T03:18:34.858Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ProyectoAeropuerto",
               "DocumentMoniker": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\ProyectoAeropuerto.csproj",
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\ProyectoAeropuerto.csproj",
@@ -202,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "SwaggerConfig.cs",
               "DocumentMoniker": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\App_Start\\SwaggerConfig.cs",
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\App_Start\\SwaggerConfig.cs",
@@ -214,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AvionController.cs",
               "DocumentMoniker": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\Controllers\\AvionController.cs",
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\Controllers\\AvionController.cs",
@@ -226,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Configuration.cs",
               "DocumentMoniker": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\Migrations\\Configuration.cs",
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\Migrations\\Configuration.cs",
@@ -238,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MiDbContext.cs",
               "DocumentMoniker": "C:\\Users\\gerik\\source\\repos\\ProyectoAeropuerto\\ProyectoAeropuerto\\Models\\MiDbContext.cs",
               "RelativeDocumentMoniker": "ProyectoAeropuerto\\Models\\MiDbContext.cs",

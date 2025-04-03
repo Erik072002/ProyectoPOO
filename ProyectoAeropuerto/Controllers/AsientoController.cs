@@ -30,14 +30,14 @@ namespace ProyectoAeropuerto.Controllers
         }
 
         // POST: api/Asiento
-        public IHttpActionResult Post(Asiento asiento, int id)
+        public IHttpActionResult Post(Asiento asiento)
         {
-            Avion AvionEncontrado = db.Avion.Find(id);
-            if (AvionEncontrado == null)
+            
+            if (asiento.Avion != null)
             {
-                NotFound();
+                Avion AvionEncontrado = db.Avion.Find(asiento.Avion.AvionId);
+                asiento.Avion = AvionEncontrado;
             }
-            asiento.Avion = AvionEncontrado ;
             db.Asiento.Add(asiento);
             db.SaveChanges();
 
