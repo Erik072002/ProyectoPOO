@@ -32,6 +32,17 @@ namespace ProyectoAeropuerto.Controllers
         // POST: api/Asiento
         public IHttpActionResult Post(Facturacion facturacion)
         {
+
+            if (facturacion.Boleto != null)
+            {
+                Boleto BoletoEncontrado = db.Boleto.Find(facturacion.Boleto.Id);
+                facturacion.Boleto = BoletoEncontrado;
+            }
+            if (facturacion.MetodoDePago != null)
+            {
+                MetodoDePago metododepagoEncontrado = db.MetodoDePago.Find(facturacion.MetodoDePago.Id);
+                facturacion.MetodoDePago = metododepagoEncontrado;
+            }
             db.Facturacion.Add(facturacion);
             db.SaveChanges();
 
@@ -39,13 +50,13 @@ namespace ProyectoAeropuerto.Controllers
         }
 
         // PUT: api/Asiento/5
-        public IHttpActionResult Put(Facturacion FacturacionModificado)
+        public IHttpActionResult Put(Facturacion FactuacionModificado)
         {
-            int id = FacturacionModificado.Id;
-            db.Entry(FacturacionModificado).State = EntityState.Modified;
+            int id = FactuacionModificado.Id;
+            db.Entry(FactuacionModificado).State = EntityState.Modified;
             db.SaveChanges();
 
-            return Ok(FacturacionModificado);
+            return Ok(FactuacionModificado);
         }
 
         // DELETE: api/Asiento/5

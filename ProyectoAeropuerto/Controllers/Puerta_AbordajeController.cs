@@ -30,12 +30,17 @@ namespace ProyectoAeropuerto.Controllers
         }
 
         // POST: api/Asiento
-        public IHttpActionResult Post(Puerta_Abordaje puerta_abordaje)
+        public IHttpActionResult Post(Puerta_Abordaje puerta_Abordaje)
         {
-            db.Puerta_Abordaje.Add(puerta_abordaje);
-            db.SaveChanges();
 
-            return Ok(puerta_abordaje);
+            if (puerta_Abordaje.Terminales != null)
+            {
+                Terminales TerminalesEncontrado = db.Terminales.Find(puerta_Abordaje.Terminales.Id);
+                puerta_Abordaje.Terminales = TerminalesEncontrado;
+            }
+            db.Puerta_Abordaje.Add(puerta_Abordaje);
+            db.SaveChanges();
+            return Ok(puerta_Abordaje);
         }
 
         // PUT: api/Asiento/5

@@ -30,22 +30,18 @@ namespace ProyectoAeropuerto.Controllers
         }
 
         // POST: api/Asiento
-        public IHttpActionResult Post(Terminales asiento)
+        public IHttpActionResult Post(Terminales Terminales)
         {
-            db.Terminales.Add(asiento);
+
+            if (Terminales.Aeropuerto != null)
+            {
+                Aeropuerto AeropuertoEncontrado = db.Aeropuerto.Find(Terminales.Aeropuerto.Id);
+                Terminales.Aeropuerto = AeropuertoEncontrado;
+            }
+            db.Terminales.Add(Terminales);
             db.SaveChanges();
 
-            return Ok(asiento);
-        }
-
-        // PUT: api/Asiento/5
-        public IHttpActionResult Put(Terminales TerminalesModificado)
-        {
-            int id = TerminalesModificado.Id;
-            db.Entry(TerminalesModificado).State = EntityState.Modified;
-            db.SaveChanges();
-
-            return Ok(TerminalesModificado);
+            return Ok(Terminales);
         }
 
         // DELETE: api/Asiento/5
