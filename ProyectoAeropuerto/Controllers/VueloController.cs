@@ -30,12 +30,33 @@ namespace ProyectoAeropuerto.Controllers
         }
 
         // POST: api/Asiento
-        public IHttpActionResult Post(Vuelo vuelo)
+        public IHttpActionResult Post(Vuelo Vuelo)
         {
-            db.Vuelo.Add(vuelo);
+
+            if (Vuelo.Avion != null)
+            {
+                Avion AvionEncontrado = db.Avion.Find(Vuelo.Avion.AvionId);
+                Vuelo.Avion = AvionEncontrado;
+            }
+            if (Vuelo.Puerta_Abordaje != null)
+            {
+                Puerta_Abordaje puertadeabordajeEncontrado = db.Puerta_Abordaje.Find(Vuelo.Puerta_Abordaje.Id);
+                Vuelo.Puerta_Abordaje = puertadeabordajeEncontrado;
+            }
+            if (Vuelo.Tripulacion != null)
+            {
+                Tripulacion TripulacionEncontrado = db.Tripulacion.Find(Vuelo.Tripulacion.Id);
+                Vuelo.Tripulacion = TripulacionEncontrado;
+            }
+            if (Vuelo.Piloto != null)
+            {
+                Piloto PilotoEncontrado = db.Piloto.Find(Vuelo.Piloto.PilotoId);
+                Vuelo.Piloto = PilotoEncontrado;
+            }
+            db.Vuelo.Add(Vuelo);
             db.SaveChanges();
 
-            return Ok(vuelo);
+            return Ok(Vuelo);
         }
 
         // PUT: api/Asiento/5

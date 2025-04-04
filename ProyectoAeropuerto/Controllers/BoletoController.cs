@@ -30,12 +30,28 @@ namespace ProyectoAeropuerto.Controllers
         }
 
         // POST: api/Asiento
-        public IHttpActionResult Post(Boleto asiento)
+        public IHttpActionResult Post(Boleto boleto)
         {
-            db.Boleto.Add(asiento);
+
+            if (boleto.Pasajero != null)
+            {
+                Pasajero pasajeroEncontrado = db.Pasajero.Find(boleto.Pasajero.PasajeroId);
+                boleto.Pasajero = pasajeroEncontrado;
+            }
+            if (boleto.Vuelo != null)
+            {
+                Vuelo vueloEncontrado = db.Vuelo.Find(boleto.Vuelo.VueloId);
+                boleto.Vuelo = vueloEncontrado;
+            }
+            if (boleto.Asiento != null)
+            {
+                Asiento asientoEncontrado = db.Asiento.Find(boleto.Asiento.AsientoId);
+                boleto.Asiento = asientoEncontrado;
+            }
+            db.Boleto.Add(boleto);
             db.SaveChanges();
 
-            return Ok(asiento);
+            return Ok(boleto);
         }
 
         // PUT: api/Asiento/5
