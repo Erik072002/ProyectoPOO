@@ -1,11 +1,9 @@
-# Ignorar archivos generados
+# Ignora SOLO el Web.config en la raíz del proyecto principal
+/ProyectoAeropuerto/Web.config
+
+# Ignorar archivos generados (opcional, pero recomendado)
 bin/
 obj/
 .vs/
 *.user
 *.suo
-
-# Ignorar TODOS los Web.config excepto:
-**/Web.config
-!/ProyectoAeropuerto/Views/Web.config
-!/ProyectoAeropuerto/Areas/HelpPage/Views/Web.config
