@@ -1,0 +1,13 @@
+# Ignorar archivos generados
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Ignorar Web.config globalmente
+**/Web.config
+
+# Excepciones (archivos que SÍ quieres versionar)
+!ProyectoAeropuerto/Views/Web.config
+!ProyectoAeropuerto/Areas/HelpPage/Views/Web.config
