@@ -5,9 +5,7 @@ obj/
 *.user
 *.suo
 
-# Ignorar Web.config globalmente
+# Ignorar TODOS los Web.config excepto:
 **/Web.config
-
-# Excepciones (archivos que SÍ quieres versionar)
-!ProyectoAeropuerto/Views/Web.config
-!ProyectoAeropuerto/Areas/HelpPage/Views/Web.config
+!/ProyectoAeropuerto/Views/Web.config
+!/ProyectoAeropuerto/Areas/HelpPage/Views/Web.config
