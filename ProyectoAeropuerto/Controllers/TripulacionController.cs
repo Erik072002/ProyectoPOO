@@ -53,6 +53,11 @@ namespace ProyectoAeropuerto.Controllers
         // POST: api/Tripulacion
         public IHttpActionResult Post(Tripulacion tripulacion)
         {
+            if (tripulacion.VueloAsignado != null)
+            {
+                Vuelo VueloEncontrado = db.Vuelo.Find(tripulacion.VueloAsignado.VueloId);
+                tripulacion.VueloAsignado = VueloEncontrado;
+            }
             db.Tripulacion.Add(tripulacion);
             db.SaveChanges();
 

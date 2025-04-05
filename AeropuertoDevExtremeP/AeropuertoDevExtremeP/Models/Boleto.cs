@@ -23,9 +23,6 @@ namespace AeropuertoDevExtremeP.Models
         public Asiento Asiento { get; set; }
         public double Pago { get; set; }
 
-        public Boleto()
-        {
-
-        }
+    
     }
 }

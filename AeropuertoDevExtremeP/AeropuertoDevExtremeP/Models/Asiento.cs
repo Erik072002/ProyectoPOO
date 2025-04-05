@@ -22,6 +22,6 @@ namespace AeropuertoDevExtremeP.Models
         public Avion Avion { get; set; }
 
 
-        public Asiento() { }
+     
     }
 }

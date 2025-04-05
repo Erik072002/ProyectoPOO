@@ -13,6 +13,6 @@ namespace AeropuertoDevExtremeP.Models
         public MetodoDePago MetodoDePago { get; set; }
 
 
-        public Facturacion() { }
+  
     }
 }
