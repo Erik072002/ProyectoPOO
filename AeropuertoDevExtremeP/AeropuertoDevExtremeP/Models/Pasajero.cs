@@ -11,7 +11,7 @@ namespace AeropuertoDevExtremeP.Models
         public int PasajeroId { get; set; }
 
         [Required(ErrorMessage = "El numero de pasajero es requerido")]
-        [Display(Name = "Numero de Pasajero")]
+        [Display(Name = "Numero de Pasaporte")]
         public string NumeroPasajeros { get; set; }
 
         [Required(ErrorMessage = "El numero de maletas es requerido")]

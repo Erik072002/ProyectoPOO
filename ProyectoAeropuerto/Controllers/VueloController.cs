@@ -64,11 +64,7 @@ namespace ProyectoAeropuerto.Controllers
                 Puerta_Abordaje puertadeabordajeEncontrado = db.Puerta_Abordaje.Find(Vuelo.Puerta_Abordaje.Id);
                 Vuelo.Puerta_Abordaje = puertadeabordajeEncontrado;
             }
-            if (Vuelo.Tripulacion != null)
-            {
-                Tripulacion TripulacionEncontrado = db.Tripulacion.Find(Vuelo.Tripulacion.Id);
-                Vuelo.Tripulacion = TripulacionEncontrado;
-            }
+            
             if (Vuelo.Piloto != null)
             {
                 Piloto PilotoEncontrado = db.Piloto.Find(Vuelo.Piloto.PilotoId);

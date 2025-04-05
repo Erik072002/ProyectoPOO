@@ -13,5 +13,10 @@ namespace AeropuertoDevExtremeP.Models
         [Required(ErrorMessage = "El cargo  es requerido")]
         [Display(Name = "Cargo")]
         public string Cargo { get; set; }
+
+        [Required(ErrorMessage = "El vuelo asignado es requerido")]
+        [Display(Name = "Vuelo Asignado")]
+
+        public Vuelo VueloAsigando { get; set; }
     }
 }

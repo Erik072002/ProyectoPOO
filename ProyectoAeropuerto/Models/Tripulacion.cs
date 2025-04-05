@@ -9,6 +9,7 @@ namespace ProyectoAeropuerto.Models
 	{
 		public int Id { get; set; }
 		public string Cargo { get; set; }
+		public Vuelo VueloAsignado { get; set; }
 
 		public Tripulacion()
 		{

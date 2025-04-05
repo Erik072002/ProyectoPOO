@@ -23,7 +23,7 @@ namespace AeropuertoDevExtremeP.Models
 
 
         [Required(ErrorMessage = "El correo es requerido")]
-        [Display(Name = "Nombre")]
+        [Display(Name = "Correo")]
         public string Correo { get; set; }
 
 
