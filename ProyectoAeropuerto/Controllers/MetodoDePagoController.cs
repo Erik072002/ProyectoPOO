@@ -12,13 +12,27 @@ namespace ProyectoAeropuerto.Controllers
     public class MetodoDePagoController : ApiController
     {
         private MiDbContext db = new MiDbContext();
-        // GET: api/Metodo_Pago
+        
+        /// <summary>
+        ///  Muestra todos los Metodo de pago
+        ///  </summary>
+        /// <returns>JSON Metodo de pago</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Metodo de pago
         public IEnumerable<MetodoDePago> Get()
         {
             return db.MetodoDePago;
         }
 
-        // GET: api/Metodo_Pago/5
+        /// <summary>
+        ///  Obtener la salida de Metodo de pago por un id
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Metodo de pago</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Metodo de pago
         public IHttpActionResult Get(int id)
         {
             MetodoDePago metodoDePago = db.MetodoDePago.Find(id);
@@ -29,7 +43,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(metodoDePago);
         }
 
-        // POST: api/Metodo_Pago
+        /// <summary>
+        ///  Crear un Metodo de pago
+        ///  </summary>
+        ///  <param name="metodoDePago"></param>
+        /// <returns>JSON Metodo de pago</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // POST: api/Metodo de pago
         public IHttpActionResult Post(MetodoDePago metodoDePago)
         {
             db.MetodoDePago.Add(metodoDePago);
@@ -38,7 +59,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(metodoDePago);
         }
 
-        // PUT: api/Metodo_Pago/5
+        /// <summary>
+        ///  Modificar un Metodo de pago
+        ///  </summary>
+        ///  <param name="ModificarMetodo"></param>
+        /// <returns>JSON Metodo de pago</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // PUT: api/Metodo de pago
         public IHttpActionResult Put(MetodoDePago ModificarMetodo)
         {
             int id = ModificarMetodo.Id;
@@ -49,7 +77,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(ModificarMetodo);
         }
 
-        // DELETE: api/Metodo_Pago/5
+        /// <summary>
+        ///  Eliminar un Metodo de pago
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Metodo de pago</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // DELETE: api/Metodo de pago
         public IHttpActionResult Delete(int id)
         {
             MetodoDePago metodoDePago = db.MetodoDePago.Find(id);

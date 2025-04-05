@@ -29,6 +29,7 @@ namespace ProyectoAeropuerto.Controllers
         /// <summary>
         /// Obtener un Piloto por su ID
         /// </summary>
+        /// <param name="id"></param>
         /// <returns>JSON Piloto</returns>
         /// <response code="200">Devuelve el valor encontrado</response>
         /// <response code="404">Si el valor no es encontrado</response>
@@ -46,6 +47,7 @@ namespace ProyectoAeropuerto.Controllers
         /// <summary>
         /// Obtener la lista de Pilotos ingresados
         /// </summary>
+        /// <param name="piloto"></param>
         /// <returns>JSON Piloto</returns>
         /// <response code="200">Devuelve los valores encontrado</response>
         /// <response code="404">Si el valor no es encontrado</response>
@@ -60,6 +62,7 @@ namespace ProyectoAeropuerto.Controllers
         /// <summary>
         /// Obtener el Piloto modificado
         /// </summary>
+        /// <param name="PilotoModificado"></param>
         /// <returns>JSON Piloto</returns>
         /// <response code="200">Devuelve el valor encontrado</response>
         /// <response code="404">Si el valor no es encontrado</response>
@@ -78,6 +81,7 @@ namespace ProyectoAeropuerto.Controllers
         /// <summary>
         /// Obtener el Piloto eliminado
         /// </summary>
+        /// <param name="id"></param>
         /// <returns>JSON Piloto</returns>
         /// <response code="200">Devuelve el valor encontrado</response>
         /// <response code="404">Si el valor no es encontrado</response>

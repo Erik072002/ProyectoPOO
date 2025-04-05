@@ -12,13 +12,27 @@ namespace ProyectoAeropuerto.Controllers
     public class AeropuertoController : ApiController
     {
         private MiDbContext db = new MiDbContext();
-        // GET: api/Asiento
+
+        /// <summary>
+        ///  Muestra todos los Aeropuerto
+        ///  </summary>
+        /// <returns>JSON Aeropuerto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Aeropuerto
         public IEnumerable<Aeropuerto> Get()
         {
             return db.Aeropuerto;
         }
 
-        // GET: api/Asiento/5
+        /// <summary>
+        ///  Obtener la salida de Aeropuerto por un id
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Aeropuerto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Aeropuerto
         public IHttpActionResult Get(int id)
         {
             Aeropuerto aeropuerto = db.Aeropuerto.Find(id);
@@ -29,7 +43,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(aeropuerto);
         }
 
-        // POST: api/Asiento
+        /// <summary>
+        ///  Crear un Aeropuerto
+        ///  </summary>
+        ///  <param name="asiento"></param>
+        /// <returns>JSON Aeropuerto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // POST: api/Aeropuerto
         public IHttpActionResult Post(Aeropuerto asiento)
         {
             db.Aeropuerto.Add(asiento);
@@ -38,7 +59,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(asiento);
         }
 
-        // PUT: api/Asiento/5
+        /// <summary>
+        ///  Modificar un Aeropuerto
+        ///  </summary>
+        ///  <param name="AeropuertoModificado"></param>
+        /// <returns>JSON Aeropuerto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // PUT: api/Aeropuerto
         public IHttpActionResult Put(Aeropuerto AeropuertoModificado)
         {
             int id = AeropuertoModificado.Id;
@@ -48,7 +76,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(AeropuertoModificado);
         }
 
-        // DELETE: api/Asiento/5
+        /// <summary>
+        ///  Eliminar un Aeropuerto
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Aeropuerto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // DELETE: api/Aeropuerto
         public IHttpActionResult Delete(int id)
         {
             Aeropuerto aeropuerto = db.Aeropuerto.Find(id);

@@ -12,13 +12,27 @@ namespace ProyectoAeropuerto.Controllers
     public class TripulacionController : ApiController
     {
         private MiDbContext db = new MiDbContext();
+
+        /// <summary>
+        ///  Muestra todos los Tripulacion
+        ///  </summary>
+        /// <returns>JSON Tripulacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
         // GET: api/Tripulacion
         public IEnumerable<Tripulacion> Get()
         {
             return db.Tripulacion;
         }
 
-        // GET: api/Tripulacion/5
+        /// <summary>
+        ///  Obtener la salida de Tripulacion por un id
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Tripulacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Tripulacion
         public IHttpActionResult Get(int id)
         {
             Tripulacion tripulacion = db.Tripulacion.Find(id);
@@ -29,6 +43,13 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(tripulacion);
         }
 
+        /// <summary>
+        ///  Crear un Tripulacion
+        ///  </summary>
+        ///  <param name="tripulacion"></param>
+        /// <returns>JSON Tripulacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
         // POST: api/Tripulacion
         public IHttpActionResult Post(Tripulacion tripulacion)
         {
@@ -38,7 +59,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(tripulacion);
         }
 
-        // PUT: api/Tripulacion/5
+        /// <summary>
+        ///  Modificar un Tripulacion
+        ///  </summary>
+        ///  <param name="tripulacionModificado"></param>
+        /// <returns>JSON Tripulacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // PUT: api/Tripulacion
         public IHttpActionResult Put(Tripulacion tripulacionModificado)
         {
             int id = tripulacionModificado.Id;
@@ -49,7 +77,14 @@ namespace ProyectoAeropuerto.Controllers
 
         }
 
-        // DELETE: api/Tripulacion/5
+        /// <summary>
+        ///  Eliminar un Tripulacion
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Tripulacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // DELETE: api/Tripulacion
         public IHttpActionResult Delete(int id)
         {
             Tripulacion tripulacion = db.Tripulacion.Find(id);

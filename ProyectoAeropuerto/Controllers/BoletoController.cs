@@ -12,13 +12,27 @@ namespace ProyectoAeropuerto.Controllers
     public class BoletoController : ApiController
     {
         private MiDbContext db = new MiDbContext();
-        // GET: api/Asiento
+
+        /// <summary>
+        ///  Muestra todos los Boleto
+        ///  </summary>
+        /// <returns>JSON Boleto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Boleto
         public IEnumerable<Boleto> Get()
         {
             return db.Boleto;
         }
 
-        // GET: api/Asiento/5
+        /// <summary>
+        ///  Obtener la salida de Boleto por un id
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Boleto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Boleto
         public IHttpActionResult Get(int id)
         {
             Boleto boleto = db.Boleto.Find(id);
@@ -29,7 +43,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(boleto);
         }
 
-        // POST: api/Asiento
+        /// <summary>
+        ///  Crear un Boleto
+        ///  </summary>
+        ///  <param name="boleto"></param>
+        /// <returns>JSON Boleto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // POST: api/Boleto
         public IHttpActionResult Post(Boleto boleto)
         {
 
@@ -54,7 +75,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(boleto);
         }
 
-        // PUT: api/Asiento/5
+        /// <summary>
+        ///  Modificar un Boleto
+        ///  </summary>
+        ///  <param name="BoletoModificado"></param>
+        /// <returns>JSON Boleto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // PUT: api/Boleto
         public IHttpActionResult Put(Boleto BoletoModificado)
         {
             int id = BoletoModificado.Id;
@@ -64,7 +92,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(BoletoModificado);
         }
 
-        // DELETE: api/Asiento/5
+        /// <summary>
+        ///  Eliminar un Boleto
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Boleto</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // DELETE: api/Boleto
         public IHttpActionResult Delete(int id)
         {
             Boleto boleto = db.Boleto.Find(id);

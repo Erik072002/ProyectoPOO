@@ -12,13 +12,27 @@ namespace ProyectoAeropuerto.Controllers
     public class VueloController : ApiController
     {
         private MiDbContext db = new MiDbContext();
-        // GET: api/Asiento
+
+        /// <summary>
+        ///  Muestra todos los Vuelo
+        ///  </summary>
+        /// <returns>JSON Vuelo</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Vuelo
         public IEnumerable<Vuelo> Get()
         {
             return db.Vuelo;
         }
 
-        // GET: api/Asiento/5
+        /// <summary>
+        ///  Obtener la salida de Vuelo por un id
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Vuelo</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Vuelo
         public IHttpActionResult Get(int id)
         {
             Vuelo vuelo = db.Vuelo.Find(id);
@@ -29,7 +43,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(vuelo);
         }
 
-        // POST: api/Asiento
+        /// <summary>
+        ///  Crear un Vuelo
+        ///  </summary>
+        ///  <param name="Vuelo"></param>
+        /// <returns>JSON Vuelo</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // POST: api/Vuelo
         public IHttpActionResult Post(Vuelo Vuelo)
         {
 
@@ -59,7 +80,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(Vuelo);
         }
 
-        // PUT: api/Asiento/5
+        /// <summary>
+        ///  Modificar un Vuelo
+        ///  </summary>
+        ///  <param name="VueloModificado"></param>
+        /// <returns>JSON Vuelo</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // PUT: api/Vuelo
         public IHttpActionResult Put(Vuelo VueloModificado)
         {
             int id = VueloModificado.VueloId;
@@ -69,7 +97,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(VueloModificado);
         }
 
-        // DELETE: api/Asiento/5
+        /// <summary>
+        ///  Eliminar un Vuelo
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Vuelo</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // DELETE: api/Vuelo
         public IHttpActionResult Delete(int id)
         {
             Vuelo vuelo = db.Vuelo.Find(id);

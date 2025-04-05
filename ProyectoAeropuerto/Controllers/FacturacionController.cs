@@ -12,13 +12,27 @@ namespace ProyectoAeropuerto.Controllers
     public class FacturacionController : ApiController
     {
         private MiDbContext db = new MiDbContext();
-        // GET: api/Asiento
+
+        /// <summary>
+        ///  Muestra todos los Facturacion
+        ///  </summary>
+        /// <returns>JSON Facturacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Facturacion
         public IEnumerable<Facturacion> Get()
         {
             return db.Facturacion;
         }
 
-        // GET: api/Asiento/5
+        /// <summary>
+        ///  Obtener la salida de Facturacion por un id
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Facturacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // GET: api/Facturacion
         public IHttpActionResult Get(int id)
         {
             Facturacion facturacion = db.Facturacion.Find(id);
@@ -29,7 +43,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(facturacion);
         }
 
-        // POST: api/Asiento
+        /// <summary>
+        ///  Crear un Facturacion
+        ///  </summary>
+        ///  <param name="facturacion"></param>
+        /// <returns>JSON Facturacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // POST: api/Facturacion
         public IHttpActionResult Post(Facturacion facturacion)
         {
 
@@ -49,7 +70,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(facturacion);
         }
 
-        // PUT: api/Asiento/5
+        /// <summary>
+        ///  Modificar un Facturacion
+        ///  </summary>
+        ///  <param name="FactuacionModificado"></param>
+        /// <returns>JSON Facturacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // PUT: api/Facturacion
         public IHttpActionResult Put(Facturacion FactuacionModificado)
         {
             int id = FactuacionModificado.Id;
@@ -59,7 +87,14 @@ namespace ProyectoAeropuerto.Controllers
             return Ok(FactuacionModificado);
         }
 
-        // DELETE: api/Asiento/5
+        /// <summary>
+        ///  Eliminar un Facturacion
+        ///  </summary>
+        ///  <param name="id"></param>
+        /// <returns>JSON Facturacion</returns>
+        /// <response code = "200"> Devuelve el valor encontrado</response>
+        /// <response code = "404"> Si  el valor no es encontrado</response>
+        // DELETE: api/Facturacion
         public IHttpActionResult Delete(int id)
         {
             Facturacion facturacion = db.Facturacion.Find(id);
