@@ -13,17 +13,17 @@ using System.Web.Http;
 
 namespace AeropuertoDevExtremeP.Controllers
 {
-    public class AvionController : ApiController
+    public class MetodoDePagoController : ApiController
     {
         [HttpGet]
         public async Task<HttpResponseMessage> Get(DataSourceLoadOptions loadOptions)
         {
-            var apiUrl = "https://localhost:44352/api/Avion";
+            var apiUrl = "https://localhost:44352/api/MetodoDePago";
 
             var respuestaJson = await GetAsync(apiUrl);
             //System.Diagnostics.Debug.WriteLine(respuestaJson); imprimir info
-            List<Avion> listaavion = JsonConvert.DeserializeObject<List<Avion>>(respuestaJson);
-            return Request.CreateResponse(DataSourceLoader.Load(listaavion, loadOptions));
+            List<MetodoDePago> listaMetodoDePago = JsonConvert.DeserializeObject<List<MetodoDePago>>(respuestaJson);
+            return Request.CreateResponse(DataSourceLoader.Load(listaMetodoDePago, loadOptions));
         }
 
         public static async Task<string> GetAsync(string uri)
@@ -32,9 +32,9 @@ namespace AeropuertoDevExtremeP.Controllers
             {
                 var handler = new HttpClientHandler();
                 handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
-                using (var avion = new HttpClient(handler))
+                using (var MetodoDePago = new HttpClient(handler))
                 {
-                    var response = await avion.GetAsync(uri);
+                    var response = await MetodoDePago.GetAsync(uri);
                     response.EnsureSuccessStatusCode();
                     return await response.Content.ReadAsStringAsync();
                 }
@@ -56,12 +56,12 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var httpContent = new StringContent(values, System.Text.Encoding.UTF8, "application/json");
 
-            var url = "https://localhost:44352/api/Avion";
+            var url = "https://localhost:44352/api/MetodoDePago";
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
-            using (var avion = new HttpClient(handler))
+            using (var MetodoDePago = new HttpClient(handler))
             {
-                var response = await avion.PostAsync(url, httpContent);
+                var response = await MetodoDePago.PostAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;
             }
@@ -75,12 +75,12 @@ namespace AeropuertoDevExtremeP.Controllers
         {
             var key = Convert.ToInt32(form.Get("key"));
 
-            var apiUrlDavion = "https://localhost:44352/api/Avion" + key;
+            var apiUrlDelMetodoDePago = "https://localhost:44352/api/MetodoDePago" + key;
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
-            using (var avion = new HttpClient(handler))
+            using (var MetodoDePago = new HttpClient(handler))
             {
-                var respuestavion = await avion.DeleteAsync(apiUrlDavion);
+                var respuestaMetodoDePago = await MetodoDePago.DeleteAsync(apiUrlDelMetodoDePago);
             }
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -93,21 +93,21 @@ namespace AeropuertoDevExtremeP.Controllers
             var key = Convert.ToInt32(form.Get("key")); //llave que estoy modificando
             var values = form.Get("values"); //Los valores que yo modifiqué en formato JSON
 
-            var apiUrlGetavion = "https://localhost:44352/api/Avion" + key;
-            var respuestaPavion = await GetAsync(apiUrlGetavion = "https://localhost:44352/api/Avion" + key);
-            Avion peliavion = JsonConvert.DeserializeObject<Avion>(respuestaPavion);
+            var apiUrlGetMetodoDePago = "https://localhost:44352/api/MetodoDePago" + key;
+            var respuestaMetodoDePago = await GetAsync(apiUrlGetMetodoDePago = "https://localhost:44352/api/MetodoDePago" + key);
+            MetodoDePago MetodoDePago = JsonConvert.DeserializeObject<MetodoDePago>(respuestaMetodoDePago);
 
-            JsonConvert.PopulateObject(values, peliavion);
+            JsonConvert.PopulateObject(values, MetodoDePago);
 
-            string jsonString = JsonConvert.SerializeObject(peliavion);
+            string jsonString = JsonConvert.SerializeObject(MetodoDePago);
             var httpContent = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json");
 
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
-            using (var avion = new HttpClient(handler))
+            using (var client = new HttpClient(handler))
             {
-                var url = "https://localhost:44352/api/Avion" + key;
-                var response = await avion.PutAsync(url, httpContent);
+                var url = "https://localhost:44352/api/MetodoDePago" + key;
+                var response = await client.PutAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;
             }

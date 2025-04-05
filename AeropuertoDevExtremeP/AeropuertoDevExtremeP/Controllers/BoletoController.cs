@@ -13,17 +13,17 @@ using System.Web.Http;
 
 namespace AeropuertoDevExtremeP.Controllers
 {
-    public class AvionController : ApiController
+    public class BoletoController : ApiController
     {
         [HttpGet]
         public async Task<HttpResponseMessage> Get(DataSourceLoadOptions loadOptions)
         {
-            var apiUrl = "https://localhost:44352/api/Avion";
+            var apiUrl = "https://localhost:44352/api/Boleto";
 
             var respuestaJson = await GetAsync(apiUrl);
             //System.Diagnostics.Debug.WriteLine(respuestaJson); imprimir info
-            List<Avion> listaavion = JsonConvert.DeserializeObject<List<Avion>>(respuestaJson);
-            return Request.CreateResponse(DataSourceLoader.Load(listaavion, loadOptions));
+            List<Boleto> listaBoleto = JsonConvert.DeserializeObject<List<Boleto>>(respuestaJson);
+            return Request.CreateResponse(DataSourceLoader.Load(listaBoleto, loadOptions));
         }
 
         public static async Task<string> GetAsync(string uri)
@@ -32,9 +32,9 @@ namespace AeropuertoDevExtremeP.Controllers
             {
                 var handler = new HttpClientHandler();
                 handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
-                using (var avion = new HttpClient(handler))
+                using (var Boleto = new HttpClient(handler))
                 {
-                    var response = await avion.GetAsync(uri);
+                    var response = await Boleto.GetAsync(uri);
                     response.EnsureSuccessStatusCode();
                     return await response.Content.ReadAsStringAsync();
                 }
@@ -56,12 +56,12 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var httpContent = new StringContent(values, System.Text.Encoding.UTF8, "application/json");
 
-            var url = "https://localhost:44352/api/Avion";
+            var url = "https://localhost:44352/api/Boleto";
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
-            using (var avion = new HttpClient(handler))
+            using (var Boleto = new HttpClient(handler))
             {
-                var response = await avion.PostAsync(url, httpContent);
+                var response = await Boleto.PostAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;
             }
@@ -75,12 +75,12 @@ namespace AeropuertoDevExtremeP.Controllers
         {
             var key = Convert.ToInt32(form.Get("key"));
 
-            var apiUrlDavion = "https://localhost:44352/api/Avion" + key;
+            var apiUrlDelBoleto = "https://localhost:44352/api/Boleto" + key;
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
-            using (var avion = new HttpClient(handler))
+            using (var Boleto = new HttpClient(handler))
             {
-                var respuestavion = await avion.DeleteAsync(apiUrlDavion);
+                var respuestaBoleto = await Boleto.DeleteAsync(apiUrlDelBoleto);
             }
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -93,21 +93,21 @@ namespace AeropuertoDevExtremeP.Controllers
             var key = Convert.ToInt32(form.Get("key")); //llave que estoy modificando
             var values = form.Get("values"); //Los valores que yo modifiqué en formato JSON
 
-            var apiUrlGetavion = "https://localhost:44352/api/Avion" + key;
-            var respuestaPavion = await GetAsync(apiUrlGetavion = "https://localhost:44352/api/Avion" + key);
-            Avion peliavion = JsonConvert.DeserializeObject<Avion>(respuestaPavion);
+            var apiUrlGetBoleto = "https://localhost:44352/api/Boleto" + key;
+            var respuestaBoleto = await GetAsync(apiUrlGetBoleto = "https://localhost:44352/api/Boleto" + key);
+            Boleto Boleto = JsonConvert.DeserializeObject<Boleto>(respuestaBoleto);
 
-            JsonConvert.PopulateObject(values, peliavion);
+            JsonConvert.PopulateObject(values, Boleto);
 
-            string jsonString = JsonConvert.SerializeObject(peliavion);
+            string jsonString = JsonConvert.SerializeObject(Boleto);
             var httpContent = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json");
 
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
-            using (var avion = new HttpClient(handler))
+            using (var client = new HttpClient(handler))
             {
-                var url = "https://localhost:44352/api/Avion" + key;
-                var response = await avion.PutAsync(url, httpContent);
+                var url = "https://localhost:44352/api/Boleto" + key;
+                var response = await client.PutAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;
             }

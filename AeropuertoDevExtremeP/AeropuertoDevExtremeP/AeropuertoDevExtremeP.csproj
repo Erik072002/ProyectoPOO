@@ -365,14 +365,28 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AeropuertoController.cs" />
+    <Compile Include="Controllers\AsientoController.cs" />
     <Compile Include="Controllers\AvionController.cs" />
+    <Compile Include="Controllers\BoletoController.cs" />
+    <Compile Include="Controllers\FacturacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MetodoDePagoController.cs" />
+    <Compile Include="Controllers\PasajeroController.cs" />
+    <Compile Include="Controllers\PilotoController.cs" />
+    <Compile Include="Controllers\Puerta_AbordajeController.cs" />
     <Compile Include="Controllers\SampleDataController.cs" />
+    <Compile Include="Controllers\TerminalesController.cs" />
+    <Compile Include="Controllers\TripulacionController.cs" />
+    <Compile Include="Controllers\VueloController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Aeropuerto.cs" />
+    <Compile Include="Models\Asiento.cs" />
     <Compile Include="Models\Avion.cs" />
+    <Compile Include="Models\Boleto.cs" />
+    <Compile Include="Models\Facturacion.cs" />
     <Compile Include="Models\MetodoDePago.cs" />
     <Compile Include="Models\Pasajero.cs" />
     <Compile Include="Models\Personas.cs" />
@@ -382,6 +396,7 @@
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\Terminales.cs" />
     <Compile Include="Models\Tripulacion.cs" />
+    <Compile Include="Models\Vuelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup>
