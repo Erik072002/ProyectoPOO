@@ -9,7 +9,32 @@ namespace AeropuertoDevExtremeP.Controllers {
         public ActionResult Index() {
             return View();
         }
+
+        public ActionResult Aeropuerto()
+        {
+            return View();
+        }
+        public ActionResult Asiento()
+        {
+            return View();
+        }
+
         public ActionResult Avion()
+        {
+            return View();
+        }
+
+        public ActionResult Boleto()
+        {
+            return View();
+        }
+
+        public ActionResult Facturacion()
+        {
+            return View();
+        }
+
+        public ActionResult MetodoDePago()
         {
             return View();
         }
@@ -19,12 +44,26 @@ namespace AeropuertoDevExtremeP.Controllers {
             return View();
         }
 
-        public ActionResult Aeropuerto()
+        public ActionResult Piloto()
         {
             return View();
         }
 
+        public ActionResult Puerto_Abordaje()
+        {
+            return View();
+        }
         public ActionResult Terminales()
+        {
+            return View();
+        }
+
+        public ActionResult Tripulacion()
+        {
+            return View();
+        }
+
+        public ActionResult Vuelo()
         {
             return View();
         }

@@ -18,7 +18,7 @@ namespace AeropuertoDevExtremeP.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> Get(DataSourceLoadOptions loadOptions)
         {
-            var apiUrl = "https://localhost:44352/api/Avion";
+            var apiUrl = "https://localhost:44352/api/Avion/";
 
             var respuestaJson = await GetAsync(apiUrl);
             //System.Diagnostics.Debug.WriteLine(respuestaJson); imprimir info
@@ -56,7 +56,7 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var httpContent = new StringContent(values, System.Text.Encoding.UTF8, "application/json");
 
-            var url = "https://localhost:44352/api/Avion";
+            var url = "https://localhost:44352/api/Avion/";
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var avion = new HttpClient(handler))
@@ -75,7 +75,7 @@ namespace AeropuertoDevExtremeP.Controllers
         {
             var key = Convert.ToInt32(form.Get("key"));
 
-            var apiUrlDavion = "https://localhost:44352/api/Avion" + key;
+            var apiUrlDavion = "https://localhost:44352/api/Avion/" + key;
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var avion = new HttpClient(handler))
@@ -93,8 +93,8 @@ namespace AeropuertoDevExtremeP.Controllers
             var key = Convert.ToInt32(form.Get("key")); //llave que estoy modificando
             var values = form.Get("values"); //Los valores que yo modifiqué en formato JSON
 
-            var apiUrlGetavion = "https://localhost:44352/api/Avion" + key;
-            var respuestaPavion = await GetAsync(apiUrlGetavion = "https://localhost:44352/api/Avion" + key);
+            var apiUrlGetavion = "https://localhost:44352/api/Avion/" + key;
+            var respuestaPavion = await GetAsync(apiUrlGetavion = "https://localhost:44352/api/Avion/" + key);
             Avion peliavion = JsonConvert.DeserializeObject<Avion>(respuestaPavion);
 
             JsonConvert.PopulateObject(values, peliavion);
@@ -106,7 +106,7 @@ namespace AeropuertoDevExtremeP.Controllers
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var avion = new HttpClient(handler))
             {
-                var url = "https://localhost:44352/api/Avion" + key;
+                var url = "https://localhost:44352/api/Avion/" + key;
                 var response = await avion.PutAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;

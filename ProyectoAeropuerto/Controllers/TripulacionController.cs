@@ -55,7 +55,7 @@ namespace ProyectoAeropuerto.Controllers
         {
             if (tripulacion.VueloAsignado != null)
             {
-                Vuelo VueloEncontrado = db.Vuelo.Find(tripulacion.VueloAsignado.VueloId);
+                Vuelo VueloEncontrado = db.Vuelo.Find(tripulacion.VueloAsignado.vueloId);
                 tripulacion.VueloAsignado = VueloEncontrado;
             }
             db.Tripulacion.Add(tripulacion);

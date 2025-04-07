@@ -18,7 +18,7 @@ namespace AeropuertoDevExtremeP.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> Get(DataSourceLoadOptions loadOptions)
         {
-            var apiUrl = "https://localhost:44352/api/Aeropuerto";
+            var apiUrl = "https://localhost:44352/api/Aeropuerto/";
 
             var respuestaJson = await GetAsync(apiUrl);
             //System.Diagnostics.Debug.WriteLine(respuestaJson); imprimir info
@@ -56,7 +56,7 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var httpContent = new StringContent(values, System.Text.Encoding.UTF8, "application/json");
 
-            var url = "https://localhost:44352/api/Aeropuerto";
+            var url = "https://localhost:44352/api/Aeropuerto/";
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var aeropuerto = new HttpClient(handler))
@@ -75,7 +75,7 @@ namespace AeropuertoDevExtremeP.Controllers
         {
             var key = Convert.ToInt32(form.Get("key"));
 
-            var apiUrlDelaeropuerto = "https://localhost:44352/api/Aeropuerto" + key;
+            var apiUrlDelaeropuerto = "https://localhost:44352/api/Aeropuerto/" + key;
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var aeropuerto = new HttpClient(handler))
@@ -93,8 +93,8 @@ namespace AeropuertoDevExtremeP.Controllers
             var key = Convert.ToInt32(form.Get("key")); //llave que estoy modificando
             var values = form.Get("values"); //Los valores que yo modifiqué en formato JSON
 
-            var apiUrlGetaeropuerto = "https://localhost:44352/api/Aeropuerto" + key;
-            var respuestaaeropuerto = await GetAsync(apiUrlGetaeropuerto = "https://localhost:44352/api/Aeropuerto" + key);
+            var apiUrlGetaeropuerto = "https://localhost:44352/api/Aeropuerto/" + key;
+            var respuestaaeropuerto = await GetAsync(apiUrlGetaeropuerto = "https://localhost:44352/api/Aeropuerto/" + key);
             Aeropuerto aeropuerto = JsonConvert.DeserializeObject<Aeropuerto>(respuestaaeropuerto);
 
             JsonConvert.PopulateObject(values, aeropuerto);
@@ -106,7 +106,7 @@ namespace AeropuertoDevExtremeP.Controllers
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var client = new HttpClient(handler))
             {
-                var url = "https://localhost:44352/api/Aeropuerto" + key;
+                var url = "https://localhost:44352/api/Aeropuerto/" + key;
                 var response = await client.PutAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;

@@ -8,7 +8,7 @@ namespace AeropuertoDevExtremeP.Models
 {
     public class Piloto : Personas
     {
-        public int PilotoId { get; set; }
+        public int pilotoId { get; set; }
 
         [Required(ErrorMessage = "La aerolinea asiganada es requerida")]
         [Display(Name = "Aerolinea asignada")]

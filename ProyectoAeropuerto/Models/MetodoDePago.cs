@@ -7,7 +7,7 @@ namespace ProyectoAeropuerto.Models
 {
 	public class MetodoDePago
 	{
-		public int Id { get; set; }
+		public int metododepagoId { get; set; }
 		public string Metodo_Pago { get; set; }
 
 		public MetodoDePago()

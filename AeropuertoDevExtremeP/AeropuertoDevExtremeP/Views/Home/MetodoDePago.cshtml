@@ -1,27 +1,25 @@
 ﻿@{
-    ViewData["Title"] = "Avion";
+    ViewData["Title"] = "MetodoDePago";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Avion</h2>
+<h2>MetodoDePago</h2>
 
-@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Avion>()
+@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.MetodoDePago>()
     .DataSource(ds => ds.WebApi()
-        .Controller("Avion")
+        .Controller("MetodoDePago")
         .LoadAction("Get")
         .InsertAction("Post")
         .UpdateAction("Put")
         .DeleteAction("Delete")
-        .Key("avionId")
+        .Key("metododepagoId")
     )
     .RemoteOperations(true)
     .Columns(columns => {
 
-        columns.AddFor(m => m.avionId);
+        columns.AddFor(m => m.metododepagoId);
 
-        columns.AddFor(m => m.Capacidad);
-
-        columns.AddFor(m => m.Nombre);
+        columns.AddFor(m => m.Metodo_Pago);
     })
     .Editing(e => e
         .Mode(GridEditMode.Popup)
@@ -30,11 +28,5 @@
         .AllowDeleting(true)
         .UseIcons(true)
         .StartEditAction(GridStartEditAction.DblClick)
-
     )
 )
-
-
-
-
-

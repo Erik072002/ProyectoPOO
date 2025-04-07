@@ -12,12 +12,12 @@
         .InsertAction("Post")
         .UpdateAction("Put")
         .DeleteAction("Delete")
-        .Key("PasajeroId")
+        .Key("pasajeroId")
     )
     .RemoteOperations(true)
     .Columns(columns => {
 
-        columns.AddFor(m => m.PasajeroId);
+        columns.AddFor(m => m.pasajeroId);
 
         columns.AddFor(m => m.NumeroPasajeros);
 
@@ -40,5 +40,7 @@
         .AllowAdding(true)
         .AllowUpdating(true)
         .AllowDeleting(true)
+        .UseIcons(true)
+        .StartEditAction(GridStartEditAction.DblClick)
     )
 )

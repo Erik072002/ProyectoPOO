@@ -184,6 +184,7 @@
     <Content Include="Content\dx.material.teal.light.css" />
     <Content Include="Content\dx.softblue.compact.css" />
     <Content Include="Content\dx.softblue.css" />
+    <Content Include="Content\dx.material.custom-schem.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -355,7 +356,14 @@
     <Content Include="Views\Home\Pasajero.cshtml" />
     <Content Include="Views\Home\Aeropuerto.cshtml" />
     <Content Include="Views\Home\Terminales.cshtml" />
+    <Content Include="Views\Home\Asiento.cshtml" />
+    <Content Include="Views\Home\Boleto.cshtml" />
+    <Content Include="Views\Home\Facturacion.cshtml" />
+    <Content Include="Views\Home\MetodoDePago.cshtml" />
+    <Content Include="Views\Home\Piloto.cshtml" />
     <Content Include="Views\Home\Puerto_Abordaje.cshtml" />
+    <Content Include="Views\Home\Tripulacion.cshtml" />
+    <Content Include="Views\Home\Vuelo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

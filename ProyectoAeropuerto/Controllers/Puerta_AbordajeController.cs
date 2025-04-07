@@ -56,7 +56,7 @@ namespace ProyectoAeropuerto.Controllers
 
             if (puerta_Abordaje.Terminales != null)
             {
-                Terminales TerminalesEncontrado = db.Terminales.Find(puerta_Abordaje.Terminales.Id);
+                Terminales TerminalesEncontrado = db.Terminales.Find(puerta_Abordaje.Terminales.terminalesId);
                 puerta_Abordaje.Terminales = TerminalesEncontrado;
             }
             db.Puerta_Abordaje.Add(puerta_Abordaje);
@@ -74,7 +74,7 @@ namespace ProyectoAeropuerto.Controllers
         // PUT: api/Puerta de abordaje
         public IHttpActionResult Put(Puerta_Abordaje Puerta_AbordajeModificado)
         {
-            int id = Puerta_AbordajeModificado.Id;
+            int id = Puerta_AbordajeModificado.puerta_abordajeId;
             db.Entry(Puerta_AbordajeModificado).State = EntityState.Modified;
             db.SaveChanges();
 

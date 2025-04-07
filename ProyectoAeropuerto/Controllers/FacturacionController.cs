@@ -56,12 +56,12 @@ namespace ProyectoAeropuerto.Controllers
 
             if (facturacion.Boleto != null)
             {
-                Boleto BoletoEncontrado = db.Boleto.Find(facturacion.Boleto.Id);
+                Boleto BoletoEncontrado = db.Boleto.Find(facturacion.Boleto.boletoId);
                 facturacion.Boleto = BoletoEncontrado;
             }
             if (facturacion.MetodoDePago != null)
             {
-                MetodoDePago metododepagoEncontrado = db.MetodoDePago.Find(facturacion.MetodoDePago.Id);
+                MetodoDePago metododepagoEncontrado = db.MetodoDePago.Find(facturacion.MetodoDePago.metododepagoId);
                 facturacion.MetodoDePago = metododepagoEncontrado;
             }
             db.Facturacion.Add(facturacion);

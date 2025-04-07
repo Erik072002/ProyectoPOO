@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Puerta de Abordaje";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PuertaAbordaje</h2>
+
+@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Puerto_Abordaje>()
+    .Columns(columns => {
+
+        columns.AddFor(m => m.puerto_abordajeId);
+
+        columns.AddFor(m => m.Aerolinea);
+    })
+    .Editing(e => e
+        .Mode(GridEditMode.Popup)
+        .AllowAdding(true)
+        .AllowUpdating(true)
+        .AllowDeleting(true)
+        .UseIcons(true)
+        .StartEditAction(GridStartEditAction.DblClick)
+    )
+)

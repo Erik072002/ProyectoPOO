@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Boleto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Boleto</h2>
+
+@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Boleto>()
+    .DataSource(ds => ds.WebApi()
+        .Controller("Boleto")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("boletoId")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.boletoId);
+
+        columns.AddFor(m => m.pasajeroId).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("Pasajero").LoadAction("Get").Key("pasajeroId"))
+            .ValueExpr("pasajeroId")
+            .DisplayExpr("Nombre")
+        );
+
+        columns.AddFor(m => m.vueloId).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("Vuelo").LoadAction("Get").Key("vueloId"))
+            .ValueExpr("vueloId")
+            .DisplayExpr("vueloId")
+        );
+
+        columns.AddFor(m => m.asientoId).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("Asiento").LoadAction("Get").Key("asientoId"))
+            .ValueExpr("asientoId")
+            .DisplayExpr("Clase")
+        );
+
+        columns.AddFor(m => m.Pago);
+    })
+    .Editing(e => e
+        .Mode(GridEditMode.Popup)
+        .AllowAdding(true)
+        .AllowUpdating(true)
+        .AllowDeleting(true)
+        .UseIcons(true)
+        .StartEditAction(GridStartEditAction.DblClick)
+    )
+)

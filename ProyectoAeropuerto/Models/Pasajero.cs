@@ -7,7 +7,7 @@ namespace ProyectoAeropuerto.Models
 {
 	public class Pasajero : Personas
 	{
-		public int PasajeroId { get; set; }
+		public int pasajeroId { get; set; }
 		public string NumeroPasajeros { get; set; }
 		public int NumeroMaletas { get; set; }
 

@@ -12,7 +12,7 @@
         .InsertAction("Post")
         .UpdateAction("Put")
         .DeleteAction("Delete")
-        .Key("Id")
+        .Key("aeropuertoId")
     )
     .RemoteOperations(true)
     .Columns(columns => {
@@ -22,8 +22,11 @@
         columns.AddFor(m => m.nombre);
     })
     .Editing(e => e
+        .Mode(GridEditMode.Popup)
         .AllowAdding(true)
         .AllowUpdating(true)
         .AllowDeleting(true)
+        .UseIcons(true)
+        .StartEditAction(GridStartEditAction.DblClick)
     )
 )

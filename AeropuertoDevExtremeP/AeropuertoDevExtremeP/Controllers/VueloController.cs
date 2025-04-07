@@ -93,8 +93,8 @@ namespace AeropuertoDevExtremeP.Controllers
             var key = Convert.ToInt32(form.Get("key")); //llave que estoy modificando
             var values = form.Get("values"); //Los valores que yo modifiqué en formato JSON
 
-            var apiUrlGetVuelo = "https://localhost:44352/api/Vuelo" + key;
-            var respuestaVuelo = await GetAsync(apiUrlGetVuelo = "https://localhost:44352/api/Vuelo" + key);
+            var apiUrlGetVuelo = "https://localhost:44352/api/Vuelo/" + key;
+            var respuestaVuelo = await GetAsync(apiUrlGetVuelo = "https://localhost:44352/api/Vuelo/" + key);
             Vuelo Vuelo = JsonConvert.DeserializeObject<Vuelo>(respuestaVuelo);
 
             JsonConvert.PopulateObject(values, Vuelo);
@@ -106,7 +106,7 @@ namespace AeropuertoDevExtremeP.Controllers
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var client = new HttpClient(handler))
             {
-                var url = "https://localhost:44352/api/Vuelo" + key;
+                var url = "https://localhost:44352/api/Vuelo/" + key;
                 var response = await client.PutAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;

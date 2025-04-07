@@ -10,7 +10,7 @@ namespace AeropuertoDevExtremeP.Models
     {
         [Required(ErrorMessage = "El ID del Asiento es requerido")]
         [Display(Name = "ID")]
-        public int AsientoId { get; set; }
+        public int asientoId { get; set; }
         public string Clase { get; set; }
 
         [Required(ErrorMessage = "El numero del asiento es requerido")]
@@ -20,6 +20,7 @@ namespace AeropuertoDevExtremeP.Models
         [Required(ErrorMessage = "El nombre del avión es requerido")]
         [Display(Name = "Nombre")]
         public Avion Avion { get; set; }
+        public int avionId { get; set; }
 
 
      

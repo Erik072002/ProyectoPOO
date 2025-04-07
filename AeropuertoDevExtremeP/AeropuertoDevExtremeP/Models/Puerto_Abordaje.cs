@@ -8,7 +8,7 @@ namespace AeropuertoDevExtremeP.Models
 {
 	public class Puerto_Abordaje
 	{
-        public int Id { get; set; }
+        public int puerto_abordajeId { get; set; }
 
         [Required(ErrorMessage = "La ID del  es requerido")]
         [Display(Name = "Numero de maletas")]

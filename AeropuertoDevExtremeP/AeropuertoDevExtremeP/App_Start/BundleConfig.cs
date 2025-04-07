@@ -31,7 +31,7 @@ namespace AeropuertoDevExtremeP {
             bundles.Add(scriptBundle);
             bundles.Add(styleBundle);
 
-            // BundleTable.EnableOptimizations = true;
+            //BundleTable.EnableOptimizations = true;
         }
     }
 }

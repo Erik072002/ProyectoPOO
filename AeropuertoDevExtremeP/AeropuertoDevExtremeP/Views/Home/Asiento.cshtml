@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Asiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Asiento</h2>
+
+@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Asiento>()
+    .DataSource(ds => ds.WebApi()
+        .Controller("Asiento")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("asientoId")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.asientoId);
+
+        columns.AddFor(m => m.Clase);
+
+        columns.AddFor(m => m.NumeroAsiento);
+
+        columns.AddFor(m => m.avionId).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("Avion").LoadAction("Get").Key("avionId"))
+            .ValueExpr("avionId")
+            .DisplayExpr("Nombre")
+        );
+    })
+    .Editing(e => e
+        .Mode(GridEditMode.Popup)
+        .AllowAdding(true)
+        .AllowUpdating(true)
+        .AllowDeleting(true)
+        .UseIcons(true)
+        .StartEditAction(GridStartEditAction.DblClick)
+    )
+)

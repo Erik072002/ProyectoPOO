@@ -8,7 +8,7 @@ namespace AeropuertoDevExtremeP.Models
 {
     public class Tripulacion : Personas
     {
-        public int Id { get; set; }
+        public int tripulacionId { get; set; }
 
         [Required(ErrorMessage = "El cargo  es requerido")]
         [Display(Name = "Cargo")]
@@ -18,5 +18,6 @@ namespace AeropuertoDevExtremeP.Models
         [Display(Name = "Vuelo Asignado")]
 
         public Vuelo VueloAsigando { get; set; }
+        public int vueloId { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace ProyectoAeropuerto.Models
 {
 	public class Terminales
 	{
-		public int Id { get; set; }
+		public int terminalesId { get; set; }
 		public string Nombre_Area { get; set; }
 		public Aeropuerto Aeropuerto { get; set; }
 		public int aeropuertoId { get; set; }

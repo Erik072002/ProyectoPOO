@@ -56,17 +56,17 @@ namespace ProyectoAeropuerto.Controllers
 
             if (boleto.Pasajero != null)
             {
-                Pasajero pasajeroEncontrado = db.Pasajero.Find(boleto.Pasajero.PasajeroId);
+                Pasajero pasajeroEncontrado = db.Pasajero.Find(boleto.Pasajero.pasajeroId);
                 boleto.Pasajero = pasajeroEncontrado;
             }
             if (boleto.Vuelo != null)
             {
-                Vuelo vueloEncontrado = db.Vuelo.Find(boleto.Vuelo.VueloId);
+                Vuelo vueloEncontrado = db.Vuelo.Find(boleto.Vuelo.vueloId);
                 boleto.Vuelo = vueloEncontrado;
             }
             if (boleto.Asiento != null)
             {
-                Asiento asientoEncontrado = db.Asiento.Find(boleto.Asiento.AsientoId);
+                Asiento asientoEncontrado = db.Asiento.Find(boleto.Asiento.asientoId);
                 boleto.Asiento = asientoEncontrado;
             }
             db.Boleto.Add(boleto);
@@ -85,7 +85,7 @@ namespace ProyectoAeropuerto.Controllers
         // PUT: api/Boleto
         public IHttpActionResult Put(Boleto BoletoModificado)
         {
-            int id = BoletoModificado.Id;
+            int id = BoletoModificado.boletoId;
             db.Entry(BoletoModificado).State = EntityState.Modified;
             db.SaveChanges();
 

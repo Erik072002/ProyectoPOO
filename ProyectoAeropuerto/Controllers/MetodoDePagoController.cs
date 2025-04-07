@@ -69,7 +69,7 @@ namespace ProyectoAeropuerto.Controllers
         // PUT: api/Metodo de pago
         public IHttpActionResult Put(MetodoDePago ModificarMetodo)
         {
-            int id = ModificarMetodo.Id;
+            int id = ModificarMetodo.metododepagoId;
 
             db.Entry(ModificarMetodo).State = EntityState.Modified;
             db.SaveChanges();

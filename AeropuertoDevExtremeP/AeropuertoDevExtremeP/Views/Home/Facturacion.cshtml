@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Facturacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Facturacion</h2>
+
+@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Facturacion>()
+    .DataSource(ds => ds.WebApi()
+        .Controller("Facturacion")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("facturacionId")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.facturacionId);
+
+        columns.AddFor(m => m.boletoId).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("Boleto").LoadAction("Get").Key("boletoId"))
+            .ValueExpr("boletoId")
+            .DisplayExpr("boletoId")
+        );
+
+        columns.AddFor(m => m.Fecha_de_Factura);
+
+        columns.AddFor(m => m.metododepagoId).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("MetodoDePago").LoadAction("Get").Key("metododepagoId"))
+            .ValueExpr("metododepagoId")
+            .DisplayExpr("Metodo_Pago")
+        );
+    })
+    .Editing(e => e
+        .Mode(GridEditMode.Popup)
+        .AllowAdding(true)
+        .AllowUpdating(true)
+        .AllowDeleting(true)
+        .UseIcons(true)
+        .StartEditAction(GridStartEditAction.DblClick)
+    )
+)

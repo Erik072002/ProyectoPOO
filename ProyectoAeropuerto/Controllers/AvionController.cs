@@ -68,7 +68,7 @@ namespace ProyectoAeropuerto.Controllers
         // PUT: api/Avion
         public IHttpActionResult Put(Avion AvionModificado)
         {
-            int id = AvionModificado.AvionId;
+            int id = AvionModificado.avionId;
             db.Entry(AvionModificado).State = EntityState.Modified;
             db.SaveChanges();
 

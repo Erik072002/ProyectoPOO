@@ -18,7 +18,7 @@ namespace AeropuertoDevExtremeP.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> Get(DataSourceLoadOptions loadOptions)
         {
-            var apiUrl = "https://localhost:44352/api/Tripulacion";
+            var apiUrl = "https://localhost:44352/api/Tripulacion/";
 
             var respuestaJson = await GetAsync(apiUrl);
             //System.Diagnostics.Debug.WriteLine(respuestaJson); imprimir info
@@ -56,7 +56,7 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var httpContent = new StringContent(values, System.Text.Encoding.UTF8, "application/json");
 
-            var url = "https://localhost:44352/api/Tripulacion";
+            var url = "https://localhost:44352/api/Tripulacion/";
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var Tripulacion = new HttpClient(handler))
@@ -75,7 +75,7 @@ namespace AeropuertoDevExtremeP.Controllers
         {
             var key = Convert.ToInt32(form.Get("key"));
 
-            var apiUrlDelTripulacion = "https://localhost:44352/api/Tripulacion" + key;
+            var apiUrlDelTripulacion = "https://localhost:44352/api/Tripulacion/" + key;
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var Tripulacion = new HttpClient(handler))
@@ -93,8 +93,8 @@ namespace AeropuertoDevExtremeP.Controllers
             var key = Convert.ToInt32(form.Get("key")); //llave que estoy modificando
             var values = form.Get("values"); //Los valores que yo modifiqué en formato JSON
 
-            var apiUrlGetTripulacion = "https://localhost:44352/api/Tripulacion" + key;
-            var respuestaTripulacion = await GetAsync(apiUrlGetTripulacion = "https://localhost:44352/api/Tripulacion" + key);
+            var apiUrlGetTripulacion = "https://localhost:44352/api/Tripulacion/" + key;
+            var respuestaTripulacion = await GetAsync(apiUrlGetTripulacion = "https://localhost:44352/api/Tripulacion/" + key);
             Tripulacion Tripulacion = JsonConvert.DeserializeObject<Tripulacion>(respuestaTripulacion);
 
             JsonConvert.PopulateObject(values, Tripulacion);
@@ -106,7 +106,7 @@ namespace AeropuertoDevExtremeP.Controllers
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var client = new HttpClient(handler))
             {
-                var url = "https://localhost:44352/api/Tripulacion" + key;
+                var url = "https://localhost:44352/api/Tripulacion/" + key;
                 var response = await client.PutAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;

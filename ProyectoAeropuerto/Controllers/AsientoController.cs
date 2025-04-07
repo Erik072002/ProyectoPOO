@@ -56,7 +56,7 @@ namespace ProyectoAeropuerto.Controllers
             
             if (asiento.Avion != null)
             {
-                Avion AvionEncontrado = db.Avion.Find(asiento.Avion.AvionId);
+                Avion AvionEncontrado = db.Avion.Find(asiento.Avion.avionId);
                 asiento.Avion = AvionEncontrado;
             }
             db.Asiento.Add(asiento);
@@ -75,7 +75,7 @@ namespace ProyectoAeropuerto.Controllers
         // PUT: api/Asiento
         public IHttpActionResult Put(Asiento AsientoModificado)
         {
-            int id = AsientoModificado.AsientoId;
+            int id = AsientoModificado.asientoId;
             db.Entry(AsientoModificado).State = EntityState.Modified;
             db.SaveChanges();
 

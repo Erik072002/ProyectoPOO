@@ -7,7 +7,7 @@ namespace ProyectoAeropuerto.Models
 {
 	public class Piloto : Personas
 	{
-		public int PilotoId { get; set; }
+		public int pilotoId { get; set; }
 		public string AerolineaAsignada { get; set; }
 		public int AniosdeExperiencia { get; set; }
 

@@ -69,7 +69,7 @@ namespace ProyectoAeropuerto.Controllers
         /// 
         public IHttpActionResult Put(Piloto PilotoModificado)
         {
-            int id = PilotoModificado.PilotoId;
+            int id = PilotoModificado.pilotoId;
 
             db.Entry(PilotoModificado).State = EntityState.Modified;
             db.SaveChanges();

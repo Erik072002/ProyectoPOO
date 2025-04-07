@@ -18,7 +18,7 @@ namespace AeropuertoDevExtremeP.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> Get(DataSourceLoadOptions loadOptions)
         {
-            var apiUrl = "https://localhost:44352/api/Puerta_Abordaje";
+            var apiUrl = "https://localhost:44352/api/Puerta_Abordaje/";
 
             var respuestaJson = await GetAsync(apiUrl);
             //System.Diagnostics.Debug.WriteLine(respuestaJson); imprimir info
@@ -56,7 +56,7 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var httpContent = new StringContent(values, System.Text.Encoding.UTF8, "application/json");
 
-            var url = "https://localhost:44352/api/Puerta_Abordaje";
+            var url = "https://localhost:44352/api/Puerta_Abordaje/";
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var Puerta_Abordaje = new HttpClient(handler))
@@ -75,7 +75,7 @@ namespace AeropuertoDevExtremeP.Controllers
         {
             var key = Convert.ToInt32(form.Get("key"));
 
-            var apiUrlDelPuerta_Abordaje = "https://localhost:44352/api/Puerta_Abordaje" + key;
+            var apiUrlDelPuerta_Abordaje = "https://localhost:44352/api/Puerta_Abordaje/" + key;
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var Puerta_Abordaje = new HttpClient(handler))
@@ -93,8 +93,8 @@ namespace AeropuertoDevExtremeP.Controllers
             var key = Convert.ToInt32(form.Get("key")); //llave que estoy modificando
             var values = form.Get("values"); //Los valores que yo modifiqué en formato JSON
 
-            var apiUrlGetPuerta_Abordaje = "https://localhost:44352/api/Puerta_Abordaje" + key;
-            var respuestaPuerta_Abordaje = await GetAsync(apiUrlGetPuerta_Abordaje = "https://localhost:44352/api/Puerta_Abordaje" + key);
+            var apiUrlGetPuerta_Abordaje = "https://localhost:44352/api/Puerta_Abordaje/" + key;
+            var respuestaPuerta_Abordaje = await GetAsync(apiUrlGetPuerta_Abordaje = "https://localhost:44352/api/Puerta_Abordaje/" + key);
             Puerto_Abordaje Puerta_Abordaje = JsonConvert.DeserializeObject<Puerto_Abordaje>(respuestaPuerta_Abordaje);
 
             JsonConvert.PopulateObject(values, Puerta_Abordaje);
@@ -106,7 +106,7 @@ namespace AeropuertoDevExtremeP.Controllers
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var client = new HttpClient(handler))
             {
-                var url = "https://localhost:44352/api/Puerta_Abordaje" + key;
+                var url = "https://localhost:44352/api/Puerta_Abordaje/" + key;
                 var response = await client.PutAsync(url, httpContent);
 
                 var result = response.Content.ReadAsStringAsync().Result;
