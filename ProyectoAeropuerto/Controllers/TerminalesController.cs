@@ -56,8 +56,9 @@ namespace ProyectoAeropuerto.Controllers
 
             if (Terminales.Aeropuerto != null)
             {
-                Aeropuerto AeropuertoEncontrado = db.Aeropuerto.Find(Terminales.Aeropuerto.Id);
+                var AeropuertoEncontrado = db.Aeropuerto.Find(Terminales.Aeropuerto.aeropuertoId);
                 Terminales.Aeropuerto = AeropuertoEncontrado;
+                
             }
             db.Terminales.Add(Terminales);
             db.SaveChanges();

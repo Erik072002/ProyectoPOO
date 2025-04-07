@@ -15,8 +15,12 @@ namespace AeropuertoDevExtremeP.Models
 
         public string Nombre_Area { get; set; }
 
+        
+        public Aeropuerto Aeropuerto { get; set; }
+
         [Required(ErrorMessage = "La ID del aeropuerto es requerido")]
         [Display(Name = "ID del Aeropuerto")]
-        public Aeropuerto Aeropuerto { get; set; }
+
+        public int aeropuertoId { get; set; }
     }
 }
