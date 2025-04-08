@@ -26,7 +26,12 @@ namespace AeropuertoDevExtremeP {
 
             // Custom site styles
             styleBundle
-                .Include("~/Content/Site.css");
+                .Include("~/Content/dx.material.custom-schem.css");
+
+            bundles.Add(new StyleBundle("~/Content/material").Include(
+                                "~/Content/material.custom-scheme2.css"
+                                                                    ));
+
 
             bundles.Add(scriptBundle);
             bundles.Add(styleBundle);
