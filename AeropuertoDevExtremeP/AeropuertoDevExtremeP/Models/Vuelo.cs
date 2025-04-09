@@ -12,12 +12,11 @@ namespace AeropuertoDevExtremeP.Models
         public DateTime Fecha_Llegada { get; set; }
         public Avion Avion { get; set; }
         public int avionId { get; set; }
-        public Puerto_Abordaje Puerta_Abordaje { get; set; }
-        public int puerto_abordajeId { get; set; }
-        public Piloto Piloto { get; set; }
-        public int pilotoId { get; set; }
+        public Puerta_Abordaje Puerta_Abordaje { get; set; }
+        public int Puerta_AbordajeId { get; set; }
+
         public double Precio { get; set; }
 
-        
+
     }
 }

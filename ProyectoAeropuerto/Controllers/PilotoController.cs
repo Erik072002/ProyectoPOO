@@ -54,6 +54,11 @@ namespace ProyectoAeropuerto.Controllers
         /// 
         public IHttpActionResult Post(Piloto piloto)
         {
+            if (piloto.VueloAsignado != null)
+            {
+                Vuelo VueloEncontrado = db.Vuelo.Find(piloto.VueloAsignado.vueloId);
+                piloto.VueloAsignado = VueloEncontrado;
+            }
             db.Piloto.Add(piloto);
             db.SaveChanges();
             return Ok(piloto);
@@ -70,6 +75,7 @@ namespace ProyectoAeropuerto.Controllers
         public IHttpActionResult Put(Piloto PilotoModificado)
         {
             int id = PilotoModificado.pilotoId;
+
 
             db.Entry(PilotoModificado).State = EntityState.Modified;
             db.SaveChanges();

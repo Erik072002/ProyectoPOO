@@ -74,7 +74,7 @@ namespace ProyectoAeropuerto.Controllers
         // PUT: api/Puerta de abordaje
         public IHttpActionResult Put(Puerta_Abordaje Puerta_AbordajeModificado)
         {
-            int id = Puerta_AbordajeModificado.puerta_abordajeId;
+            int id = Puerta_AbordajeModificado.Puerta_AbordajeId;
             db.Entry(Puerta_AbordajeModificado).State = EntityState.Modified;
             db.SaveChanges();
 

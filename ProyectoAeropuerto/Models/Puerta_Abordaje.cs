@@ -7,7 +7,7 @@ namespace ProyectoAeropuerto.Models
 {
 	public class Puerta_Abordaje
 	{
-		public int puerta_abordajeId { get; set; }
+		public int Puerta_AbordajeId { get; set; }
 		public Terminales Terminales { get; set; }
         public string Aerolinea { get; set; }
 		public int terminalesId { get; set; }

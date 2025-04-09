@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Avion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Avion</h2>
+
+@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Avion>()
+    .DataSource(ds => ds.WebApi()
+        .Controller("Avion")
+        .LoadAction("Get")
+        .Key("avionId")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.avionId);
+
+        columns.AddFor(m => m.Capacidad);
+
+        columns.AddFor(m => m.Nombre);
+    })
+)

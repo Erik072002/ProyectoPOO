@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Puerta_Abordaje";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Puerta_Abordaje</h2>
+
+@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Puerta_Abordaje>()
+    .DataSource(ds => ds.WebApi()
+        .Controller("Puerta_Abordaje")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("Puerta_AbordajeId")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.Puerta_AbordajeId);
+
+        columns.AddFor(m => m.Aerolinea);
+
+        columns.AddFor(m => m.terminalesId).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("Terminales").LoadAction("Get").Key("terminalesId"))
+            .ValueExpr("terminalesId")
+            .DisplayExpr("Nombre_Area")
+        );
+    })
+    .Editing(e => e
+        .AllowAdding(true)
+        .AllowUpdating(true)
+        .AllowDeleting(true)
+    )
+)

@@ -25,5 +25,20 @@ namespace ProyectoAeropuerto.Models
         public DbSet<Terminales> Terminales { get; set; }
         public DbSet<Tripulacion> Tripulacion { get; set; }
         public DbSet<Vuelo> Vuelo { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Vuelo>()
+                .HasRequired(v => v.Avion)
+                .WithMany()
+                .HasForeignKey(v => v.avionId)
+                .WillCascadeOnDelete(false); // 👈 Aquí se desactiva el cascade
+
+            modelBuilder.Entity<Vuelo>()
+                .HasRequired(v => v.Puerta_Abordaje)
+                .WithMany()
+                .HasForeignKey(v => v.Puerta_AbordajeId)
+                .WillCascadeOnDelete(false);
+        }
     }
 }

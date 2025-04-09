@@ -6,9 +6,9 @@ using System.Web;
 
 namespace AeropuertoDevExtremeP.Models
 {
-	public class Puerto_Abordaje
+	public class Puerta_Abordaje
 	{
-        public int puerto_abordajeId { get; set; }
+        public int Puerta_AbordajeId { get; set; }
 
         [Required(ErrorMessage = "La ID del  es requerido")]
         [Display(Name = "Numero de maletas")]
@@ -18,5 +18,6 @@ namespace AeropuertoDevExtremeP.Models
         [Required(ErrorMessage = "La aerolinea es requerido")]
         [Display(Name = "Aerolinea")]
         public string Aerolinea { get; set; }
+        public int terminalesId { get; set; }
     }
 }

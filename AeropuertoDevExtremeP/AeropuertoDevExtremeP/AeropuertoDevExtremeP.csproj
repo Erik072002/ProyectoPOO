@@ -186,8 +186,30 @@
     <Content Include="Content\dx.softblue.compact.css" />
     <Content Include="Content\dx.softblue.css" />
     <Content Include="Content\dx.material.custom-schem.css" />
+    <Content Include="Content\images\img_1.jpg" />
+    <Content Include="Content\images\img_2.jpg" />
+    <Content Include="Content\images\img_3.jpg" />
+    <Content Include="Content\images\img_4.jpg" />
+    <Content Include="Content\images\img_5.jpg" />
+    <Content Include="Content\images\img_6.jpg" />
+    <Content Include="Content\images\img_7.jpg" />
+    <Content Include="Content\images\img_8.jpg" />
+    <Content Include="Content\images\img_bg_1.jpg" />
+    <Content Include="Content\images\img_bg_2.jpg" />
+    <Content Include="Content\images\img_bg_3.jpg" />
+    <Content Include="Content\images\loader.gif" />
     <Content Include="Content\material.custom-scheme 2.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\ssc\animate.css" />
+    <Content Include="Content\ssc\bootstrap-datepicker.min.css" />
+    <Content Include="Content\ssc\bootstrap.css" />
+    <Content Include="Content\ssc\flexslider.css" />
+    <Content Include="Content\ssc\icomoon.css" />
+    <Content Include="Content\ssc\magnific-popup.css" />
+    <Content Include="Content\ssc\owl.carousel.min.css" />
+    <Content Include="Content\ssc\owl.theme.default.min.css" />
+    <Content Include="Content\ssc\style.css" />
+    <Content Include="Content\ssc\themify-icons.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\aspnet\dx.aspnet.data.js" />
@@ -228,11 +250,30 @@
     <Content Include="Scripts\globalize\message.min.js" />
     <Content Include="Scripts\globalize\number.js" />
     <Content Include="Scripts\globalize\number.min.js" />
+    <Content Include="Content\ssc\.DS_Store" />
+    <Content Include="Content\ssc\bootstrap.css.map" />
+    <Content Include="Content\ssc\style.css.map" />
+    <Content Include="Content\images\.DS_Store" />
     <None Include="Scripts\jquery-3.6.3.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.3.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
     <Content Include="Scripts\jquery-3.6.3.slim.js" />
     <Content Include="Scripts\jquery-3.6.3.slim.min.js" />
+    <Content Include="Scripts\js2\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\js2\bootstrap.min.js" />
+    <Content Include="Scripts\js2\google_map.js" />
+    <Content Include="Scripts\js2\jquery.countTo.js" />
+    <Content Include="Scripts\js2\jquery.easing.1.3.js" />
+    <Content Include="Scripts\js2\jquery.easypiechart.min.js" />
+    <Content Include="Scripts\js2\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\js2\jquery.min.js" />
+    <Content Include="Scripts\js2\jquery.stellar.min.js" />
+    <Content Include="Scripts\js2\jquery.waypoints.min.js" />
+    <Content Include="Scripts\js2\magnific-popup-options.js" />
+    <Content Include="Scripts\js2\main.js" />
+    <Content Include="Scripts\js2\modernizr-2.6.2.min.js" />
+    <Content Include="Scripts\js2\owl.carousel.min.js" />
+    <Content Include="Scripts\js2\respond.min.js" />
     <Content Include="Scripts\jspdf.plugin.autotable.js" />
     <Content Include="Scripts\jspdf.plugin.autotable.min.js" />
     <Content Include="Scripts\jspdf.umd.js" />
@@ -281,6 +322,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.6.3.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.3.min.map" />
+    <Content Include="Scripts\js2\.DS_Store" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -354,7 +396,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
-    <Content Include="Views\Home\Avion.cshtml" />
     <Content Include="Views\Home\Pasajero.cshtml" />
     <Content Include="Views\Home\Aeropuerto.cshtml" />
     <Content Include="Views\Home\Terminales.cshtml" />
@@ -363,9 +404,10 @@
     <Content Include="Views\Home\Facturacion.cshtml" />
     <Content Include="Views\Home\MetodoDePago.cshtml" />
     <Content Include="Views\Home\Piloto.cshtml" />
-    <Content Include="Views\Home\Puerto_Abordaje.cshtml" />
-    <Content Include="Views\Home\Tripulacion.cshtml" />
+    <Content Include="Views\Avion.cshtml" />
     <Content Include="Views\Home\Vuelo.cshtml" />
+    <Content Include="Views\Home\Avion.cshtml" />
+    <Content Include="Views\Home\Puerta_Abordaje.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -405,7 +447,7 @@
     <Compile Include="Models\Pasajero.cs" />
     <Compile Include="Models\Personas.cs" />
     <Compile Include="Models\Piloto.cs" />
-    <Compile Include="Models\Puerto_Abordaje.cs" />
+    <Compile Include="Models\Puerta_Abordaje.cs" />
     <Compile Include="Models\SampleData.cs" />
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\Terminales.cs" />

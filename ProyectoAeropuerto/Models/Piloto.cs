@@ -10,8 +10,10 @@ namespace ProyectoAeropuerto.Models
 		public int pilotoId { get; set; }
 		public string AerolineaAsignada { get; set; }
 		public int AniosdeExperiencia { get; set; }
+		public Vuelo VueloAsignado { get; set; }
+		public int vueloId { get; set; }
 
-		public Piloto()
+        public Piloto()
 		{
 
 		}

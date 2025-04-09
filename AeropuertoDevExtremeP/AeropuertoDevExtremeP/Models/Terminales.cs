@@ -8,7 +8,7 @@ namespace AeropuertoDevExtremeP.Models
 {
 	public class Terminales
 	{
-        public int Id { get; set; }
+        public int terminalesId { get; set; }
 
         [Required(ErrorMessage = "El nombre del área es requerido")]
         [Display(Name = "Nombre del área")]

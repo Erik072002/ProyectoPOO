@@ -29,22 +29,17 @@
             .DisplayExpr("Nombre")
         );
 
-        columns.AddFor(m => m.puerto_abordajeId);
-
-        columns.AddFor(m => m.pilotoId).Lookup(lookup => lookup
-            .DataSource(ds => ds.WebApi().Controller("Piloto").LoadAction("Get").Key("pilotoId"))
-            .ValueExpr("pilotoId")
-            .DisplayExpr("Nombre")
+        columns.AddFor(m => m.Puerta_AbordajeId).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("Puerta_Abordaje").LoadAction("Get").Key("Puerta_AbordajeId"))
+            .ValueExpr("Puerta_AbordajeId")
+            .DisplayExpr("Aerolinea")
         );
 
         columns.AddFor(m => m.Precio);
     })
     .Editing(e => e
-        .Mode(GridEditMode.Popup)
         .AllowAdding(true)
         .AllowUpdating(true)
         .AllowDeleting(true)
-        .UseIcons(true)
-        .StartEditAction(GridStartEditAction.DblClick)
     )
 )

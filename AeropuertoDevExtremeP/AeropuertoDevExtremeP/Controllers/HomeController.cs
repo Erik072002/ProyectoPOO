@@ -49,7 +49,7 @@ namespace AeropuertoDevExtremeP.Controllers {
             return View();
         }
 
-        public ActionResult Puerto_Abordaje()
+        public ActionResult Puerta_Abordaje()
         {
             return View();
         }

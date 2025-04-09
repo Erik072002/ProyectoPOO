@@ -22,7 +22,7 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var respuestaJson = await GetAsync(apiUrl);
             //System.Diagnostics.Debug.WriteLine(respuestaJson); imprimir info
-            List<Puerto_Abordaje> listaPuerta_Abordaje = JsonConvert.DeserializeObject<List<Puerto_Abordaje>>(respuestaJson);
+            List<Puerta_Abordaje> listaPuerta_Abordaje = JsonConvert.DeserializeObject<List<Puerta_Abordaje>>(respuestaJson);
             return Request.CreateResponse(DataSourceLoader.Load(listaPuerta_Abordaje, loadOptions));
         }
 
@@ -95,7 +95,7 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var apiUrlGetPuerta_Abordaje = "https://localhost:44352/api/Puerta_Abordaje/" + key;
             var respuestaPuerta_Abordaje = await GetAsync(apiUrlGetPuerta_Abordaje = "https://localhost:44352/api/Puerta_Abordaje/" + key);
-            Puerto_Abordaje Puerta_Abordaje = JsonConvert.DeserializeObject<Puerto_Abordaje>(respuestaPuerta_Abordaje);
+            Puerta_Abordaje Puerta_Abordaje = JsonConvert.DeserializeObject<Puerta_Abordaje>(respuestaPuerta_Abordaje);
 
             JsonConvert.PopulateObject(values, Puerta_Abordaje);
 

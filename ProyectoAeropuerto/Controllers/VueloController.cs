@@ -61,15 +61,11 @@ namespace ProyectoAeropuerto.Controllers
             }
             if (Vuelo.Puerta_Abordaje != null)
             {
-                Puerta_Abordaje puertadeabordajeEncontrado = db.Puerta_Abordaje.Find(Vuelo.Puerta_Abordaje.puerta_abordajeId);
+                Puerta_Abordaje puertadeabordajeEncontrado = db.Puerta_Abordaje.Find(Vuelo.Puerta_Abordaje.Puerta_AbordajeId);
                 Vuelo.Puerta_Abordaje = puertadeabordajeEncontrado;
+                
             }
             
-            if (Vuelo.Piloto != null)
-            {
-                Piloto PilotoEncontrado = db.Piloto.Find(Vuelo.Piloto.pilotoId);
-                Vuelo.Piloto = PilotoEncontrado;
-            }
             db.Vuelo.Add(Vuelo);
             db.SaveChanges();
 
