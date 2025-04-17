@@ -3,7 +3,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Puerta_Abordaje</h2>
+<div id="fh5co-wrapper">
+    <div id="fh5co-page">
+        <div class="container mt-5">
+            <div class="text-white text-center p-4 rounded shadow"
+                 style="width: 80%; margin: 0 auto; font-size: 2em; background-color: rgba(0, 0, 0, 0.5);">
+                <h2 class="text-white">Puerta de Abordaje</h2>
+            </div>
+        </div>
+    </div>
+</div>
 
 @(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Puerta_Abordaje>()
     .DataSource(ds => ds.WebApi()
