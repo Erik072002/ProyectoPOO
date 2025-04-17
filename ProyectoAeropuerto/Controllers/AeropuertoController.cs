@@ -51,12 +51,12 @@ namespace ProyectoAeropuerto.Controllers
         /// <response code = "200"> Devuelve el valor encontrado</response>
         /// <response code = "404"> Si  el valor no es encontrado</response>
         // POST: api/Aeropuerto
-        public IHttpActionResult Post(Aeropuerto asiento)
+        public IHttpActionResult Post(Aeropuerto aeropuerto)
         {
-            db.Aeropuerto.Add(asiento);
+            db.Aeropuerto.Add(aeropuerto);
             db.SaveChanges();
 
-            return Ok(asiento);
+            return Ok(aeropuerto);
         }
 
         /// <summary>
