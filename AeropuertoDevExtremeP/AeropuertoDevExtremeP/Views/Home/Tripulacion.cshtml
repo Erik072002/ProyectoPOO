@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Tripulacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="fh5co-wrapper">
+    <div id="fh5co-page">
+        <div class="container mt-5">
+            <div class="text-white text-center p-4 rounded shadow"
+                 style="width: 80%; margin: 0 auto; font-size: 2em; background-color: rgba(0, 0, 0, 0.5);">
+                <h2 class="text-white">Tripulación</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Tripulacion>()
+    .DataSource(ds => ds.WebApi()
+        .Controller("Tripulacion")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("tripulacionId")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.tripulacionId);
+
+        columns.AddFor(m => m.Cargo);
+
+        columns.AddFor(m => m.vueloId);
+
+        columns.AddFor(m => m.Nombre);
+
+        columns.AddFor(m => m.Apellido);
+
+        columns.AddFor(m => m.Edad);
+
+        columns.AddFor(m => m.Correo);
+
+        columns.AddFor(m => m.Direcciones);
+
+        columns.AddFor(m => m.Identidad);
+    })
+    .Editing(e => e
+        .Mode(GridEditMode.Popup)
+        .AllowAdding(true)
+        .AllowUpdating(true)
+        .AllowDeleting(true)
+        .UseIcons(true)
+        .StartEditAction(GridStartEditAction.DblClick)
+    )
+)

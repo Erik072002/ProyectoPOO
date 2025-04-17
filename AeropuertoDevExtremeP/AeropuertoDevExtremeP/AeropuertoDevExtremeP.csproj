@@ -408,6 +408,7 @@
     <Content Include="Views\Home\Vuelo.cshtml" />
     <Content Include="Views\Home\Avion.cshtml" />
     <Content Include="Views\Home\Puerta_Abordaje.cshtml" />
+    <Content Include="Views\Home\Tripulacion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
