@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div style="width: 80%; margin: 0 auto;">
+    <div style="width: 90%; margin: 0 auto;">
         @(Html.DevExtreme().DataGrid<Vuelo>()
                 .DataSource(ds => ds.WebApi()
                     .Controller("Vuelo")
@@ -30,7 +30,6 @@
                 )
                 .RemoteOperations(true)
                 .Paging(p => p.PageSize(10))
-                .FilterRow(f => f.Visible(true))
                 .HeaderFilter(f => f.Visible(true))
                 .Grouping(g => g.AutoExpandAll(false))
                 .Editing(e => e

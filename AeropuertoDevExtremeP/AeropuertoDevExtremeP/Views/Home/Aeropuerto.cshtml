@@ -35,11 +35,13 @@
                     .Key("aeropuertoId")
                 )
                 .RemoteOperations(true)
+                .Paging(p => p.PageSize(10))
+                .HeaderFilter(f => f.Visible(true))
                 .Columns(columns => {
-                    columns.AddFor(m => m.aeropuertoId);
-                    columns.AddFor(m => m.nombre);
-                    columns.AddFor(m => m.Longitud);
-                    columns.AddFor(m => m.Latitud);
+                    columns.AddFor(m => m.aeropuertoId).Alignment(HorizontalAlignment.Right);
+                    columns.AddFor(m => m.nombre).Alignment(HorizontalAlignment.Center);
+                    columns.AddFor(m => m.Longitud).Alignment(HorizontalAlignment.Center);
+                    columns.AddFor(m => m.Latitud).Alignment(HorizontalAlignment.Center);
                 })
                 .Editing(e => e
                     .Mode(GridEditMode.Popup)

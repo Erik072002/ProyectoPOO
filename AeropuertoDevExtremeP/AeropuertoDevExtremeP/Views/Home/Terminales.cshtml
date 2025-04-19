@@ -25,6 +25,8 @@
         .Key("terminalesId")
     )
     .RemoteOperations(true)
+    .Paging(p => p.PageSize(10))
+    .HeaderFilter(f => f.Visible(true))
     .Columns(columns => {
 
         columns.AddFor(m => m.terminalesId).Alignment(HorizontalAlignment.Right);

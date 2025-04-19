@@ -15,7 +15,7 @@
 </div>
 
 
-<div style="width: 80%; margin: 0 auto;">
+<div style="width: 100%; margin: 0 auto;">
     @(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Vuelo>()
     .DataSource(ds => ds.WebApi()
         .Controller("Vuelo")
@@ -26,6 +26,8 @@
         .Key("vueloId")
     )
     .RemoteOperations(true)
+    .Paging(p => p.PageSize(10))
+    .HeaderFilter(f => f.Visible(true))
     .Columns(columns => {
 
         columns.AddFor(m => m.vueloId).Alignment(HorizontalAlignment.Right);
