@@ -8,16 +8,17 @@ namespace AeropuertoDevExtremeP.Models
 {
 	public class Puerta_Abordaje
 	{
+        [Display(Name = "No")]
         public int Puerta_AbordajeId { get; set; }
 
-        [Required(ErrorMessage = "La ID del  es requerido")]
-        [Display(Name = "Numero de maletas")]
+        [Display(Name = "No. Terminales")]
 
         public Terminales Terminales { get; set; }
 
         [Required(ErrorMessage = "La aerolinea es requerido")]
         [Display(Name = "Aerolinea")]
         public string Aerolinea { get; set; }
+        [Display(Name = "No. Terminales")]
         public int terminalesId { get; set; }
     }
 }

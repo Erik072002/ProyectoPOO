@@ -14,7 +14,8 @@
     </div>
 </div>
 
-@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Puerta_Abordaje>()
+<div style="width: 80%; margin: 0 auto;">
+    @(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Puerta_Abordaje>()
     .DataSource(ds => ds.WebApi()
         .Controller("Puerta_Abordaje")
         .LoadAction("Get")
@@ -26,19 +27,35 @@
     .RemoteOperations(true)
     .Columns(columns => {
 
-        columns.AddFor(m => m.Puerta_AbordajeId);
+        columns.AddFor(m => m.Puerta_AbordajeId).Alignment(HorizontalAlignment.Right);
 
-        columns.AddFor(m => m.Aerolinea);
+        columns.AddFor(m => m.Aerolinea).Alignment(HorizontalAlignment.Center);
 
-        columns.AddFor(m => m.terminalesId).Lookup(lookup => lookup
+        columns.AddFor(m => m.terminalesId).Alignment(HorizontalAlignment.Center).Lookup(lookup => lookup
             .DataSource(ds => ds.WebApi().Controller("Terminales").LoadAction("Get").Key("terminalesId"))
             .ValueExpr("terminalesId")
             .DisplayExpr("Nombre_Area")
         );
     })
     .Editing(e => e
+        .Mode(GridEditMode.Popup)
         .AllowAdding(true)
         .AllowUpdating(true)
         .AllowDeleting(true)
+        .UseIcons(true)
+        .StartEditAction(GridStartEditAction.DblClick)
     )
+    .Summary(s => s
+    .TotalItems(totalItems =>
+    {
+        totalItems.AddFor(m => m.Puerta_AbordajeId)
+            .SummaryType(SummaryType.Count)
+            .Alignment(HorizontalAlignment.Left);
+    })
+    .GroupItems(groupItems =>
+    {
+        groupItems.Add().SummaryType(SummaryType.Count);
+    })
 )
+)
+</div>

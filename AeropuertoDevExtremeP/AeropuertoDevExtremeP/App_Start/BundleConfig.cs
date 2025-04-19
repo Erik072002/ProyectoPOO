@@ -35,7 +35,16 @@ namespace AeropuertoDevExtremeP {
 
             bundles.Add(scriptBundle);
             bundles.Add(styleBundle);
+            // Bundles de DevExtreme
+            bundles.Add(new ScriptBundle("~/bundles/devextreme").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/dx.all.js"
+            ));
 
+            bundles.Add(new StyleBundle("~/Content/devextreme").Include(
+                "~/Content/dx.common.css",
+                "~/Content/dx.light.css" // o dx.dark.css
+            ));
             //BundleTable.EnableOptimizations = true;
         }
     }

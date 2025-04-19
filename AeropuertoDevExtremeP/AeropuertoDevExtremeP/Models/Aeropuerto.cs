@@ -8,6 +8,7 @@ namespace AeropuertoDevExtremeP.Models
 {
 	public class Aeropuerto
 	{
+        [Display(Name = "No")]
         public int aeropuertoId { get; set; }
 
         [Required(ErrorMessage = "El nombre del aeropuerto es requerido")]

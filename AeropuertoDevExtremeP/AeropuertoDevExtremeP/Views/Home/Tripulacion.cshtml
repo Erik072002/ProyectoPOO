@@ -14,7 +14,8 @@
     </div>
 </div>
 
-@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Tripulacion>()
+<div style="width: 80%; margin: 0 auto;">
+    @(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Tripulacion>()
     .DataSource(ds => ds.WebApi()
         .Controller("Tripulacion")
         .LoadAction("Get")
@@ -26,23 +27,27 @@
     .RemoteOperations(true)
     .Columns(columns => {
 
-        columns.AddFor(m => m.tripulacionId);
+        columns.AddFor(m => m.tripulacionId).Alignment(HorizontalAlignment.Right);
 
-        columns.AddFor(m => m.Cargo);
+        columns.AddFor(m => m.Cargo).Alignment(HorizontalAlignment.Center);
 
-        columns.AddFor(m => m.vueloId);
+        columns.AddFor(m => m.vueloId).Alignment(HorizontalAlignment.Center).Lookup(lookup => lookup
+            .DataSource(ds => ds.WebApi().Controller("Vuelo").LoadAction("Get").Key("vueloId"))
+            .ValueExpr("vueloId")
+            .DisplayExpr("vueloId")
+        ); ;
 
-        columns.AddFor(m => m.Nombre);
+        columns.AddFor(m => m.Nombre).Alignment(HorizontalAlignment.Center);
 
-        columns.AddFor(m => m.Apellido);
+        columns.AddFor(m => m.Apellido).Alignment(HorizontalAlignment.Center);
 
-        columns.AddFor(m => m.Edad);
+        columns.AddFor(m => m.Edad).Alignment(HorizontalAlignment.Center);
 
-        columns.AddFor(m => m.Correo);
+        columns.AddFor(m => m.Correo).Alignment(HorizontalAlignment.Center);
 
-        columns.AddFor(m => m.Direcciones);
+        columns.AddFor(m => m.Direcciones).Alignment(HorizontalAlignment.Center);
 
-        columns.AddFor(m => m.Identidad);
+        columns.AddFor(m => m.Identidad).Alignment(HorizontalAlignment.Center);
     })
     .Editing(e => e
         .Mode(GridEditMode.Popup)
@@ -52,4 +57,17 @@
         .UseIcons(true)
         .StartEditAction(GridStartEditAction.DblClick)
     )
+    .Summary(s => s
+    .TotalItems(totalItems =>
+    {
+        totalItems.AddFor(m => m.tripulacionId)
+            .SummaryType(SummaryType.Count)
+            .Alignment(HorizontalAlignment.Left);
+    })
+    .GroupItems(groupItems =>
+    {
+        groupItems.Add().SummaryType(SummaryType.Count);
+    })
 )
+)
+</div>

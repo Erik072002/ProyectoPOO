@@ -8,7 +8,9 @@ namespace AeropuertoDevExtremeP.Models
 {
 	public class Avion
 	{
+        [Display(Name = "No")]
         public int avionId { get; set; }
+        [Display(Name = "Capacidad")]
         public int Capacidad { get; set; }
 
         [Required(ErrorMessage = "El nombre es requerido")]

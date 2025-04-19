@@ -1,2 +1,17 @@
-body {
+body { /* Por ejemplo, en Content/custom.css */
+    .custom-grid .dx-datagrid-headers
+    {
+        background-color: #333;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .custom-grid .dx-row-alt {
+        background-color: #f9f9f9;
+    }
+
+    .custom-grid .dx-row:hover {
+       background-color: #e3f2fd;
+    }
+
 }

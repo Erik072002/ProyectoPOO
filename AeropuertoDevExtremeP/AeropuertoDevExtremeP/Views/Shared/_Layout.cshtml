@@ -27,11 +27,10 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-color: rgba(0, 0, 0, 0.6); 
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
         .navbar {
-
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             background-color: rgba(0, 0, 0, 0.6);
         }
@@ -47,6 +46,31 @@
         .container {
             padding-top: 20px;
         }
+
+        .custom-menu-button {
+            text-decoration:none;
+            padding: 8px 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 40px;
+            float: left; 
+            transition: background-color 0.3s;
+        }
+
+        .custom-menu-dropdown {
+            position: absolute;
+            top: 78px;
+            left: 120px; 
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
     </style>
 
     <!-- Sección de estilos personalizados desde las vistas -->
@@ -54,6 +78,7 @@
 </head>
 
 <body class="dx-swatch-custom-scheme">
+
     <!-- Barra de navegación -->
     <nav class="navbar navbar-dark navbar-expand-md fixed-top">
         <div class="container-fluid">
@@ -68,17 +93,11 @@
 
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a href="#" class="nav-link active">Inicio</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Aeropuerto", "Home")" class="nav-link">Aeropuertos</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Asiento", "Home")" class="nav-link">Asientos</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Avion", "Home")" class="nav-link">Aviones</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Pasajero", "Home")" class="nav-link">Pasajero</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Facturacion", "Home")" class="nav-link">Facturacion</a></li>
                     <li class="nav-item"><a href="@Url.Action("Boleto", "Home")" class="nav-link">Boleto</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Facturacion", "Home")" class="nav-link">Facturación</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Vuelo", "Home")" class="nav-link">Vuelo</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Terminales", "Home")" class="nav-link">Terminales</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Puerta_Abordaje", "Home")" class="nav-link">Puerta Abordaje</a></li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="#about" class="nav-link">Acerca de</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
                 </ul>
@@ -86,21 +105,37 @@
         </div>
     </nav>
 
-    <!-- Contenido principal -->
-    <main class="container" style="margin-top: 80px; color: #fff;">
-        @RenderBody()
-    </main>
+    <!-- Botón de menú básico -->
+    <button class="custom-menu-button" onclick="toggleMenu()">Menu</button>
 
-    <!-- Script para marcar el nav-link activo -->
+    <!-- Menú desplegable simple -->
+    <div id="mainMenu" class="custom-menu-dropdown" style="display:none">
+        <a href="@Url.Action("Index", "Home")" style="display:block; color:white; padding:5px; text-decoration: none;">Inicio</a>
+        <a href="@Url.Action("Aeropuerto", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Aeropuertos</a>
+        <a href="@Url.Action("Asiento", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Asientos</a>
+        <a href="@Url.Action("Avion", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Aviones</a>
+        <a href="@Url.Action("Boleto", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Boleto</a>
+        <a href="@Url.Action("Facturacion", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Facturacion</a>
+        <a href="@Url.Action("MetodoDePago", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Metodo De Pago</a>
+        <a href="@Url.Action("Pasajero", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Pasajero</a>
+        <a href="@Url.Action("Piloto", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Piloto</a>
+        <a href="@Url.Action("Puerta_Abordaje", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Puerta Abordaje</a>
+        <a href="@Url.Action("Terminales", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Terminales</a>
+        <a href="@Url.Action("Tripulacion", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Tripulacion</a>
+        <a href="@Url.Action("Vuelo", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Vuelo</a>
+    </div>
+
+    <div id="mainContent" style="margin-top:80px;">
+        @RenderBody()
+    </div>
+
     <script>
-        document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.href === window.location.href || link.href === window.location.origin + window.location.pathname) {
-                link.classList.add('active');
-            }
-        });
+        function toggleMenu() {
+            var menu = document.getElementById("mainMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
     </script>
 
-    <!-- Sección de scripts personalizados desde las vistas -->
-    @RenderSection("Scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>

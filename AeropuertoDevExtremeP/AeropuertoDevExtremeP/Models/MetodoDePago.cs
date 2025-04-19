@@ -8,6 +8,7 @@ namespace AeropuertoDevExtremeP.Models
 {
 	public class MetodoDePago
 	{
+        [Display(Name = "No")]
         public int metododepagoId { get; set; }
 
         [Required(ErrorMessage = "El tipo de metodo es requerido")]
