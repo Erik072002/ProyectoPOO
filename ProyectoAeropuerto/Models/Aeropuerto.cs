@@ -9,9 +9,11 @@ namespace ProyectoAeropuerto.Models
 	{
 		public int aeropuertoId { get; set; }
 		public string nombre { get; set; }
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
 
 
-		public Aeropuerto()
+        public Aeropuerto()
 		{
 
 		}

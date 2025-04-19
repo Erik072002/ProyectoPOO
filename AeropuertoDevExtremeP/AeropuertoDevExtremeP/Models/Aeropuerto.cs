@@ -13,5 +13,8 @@ namespace AeropuertoDevExtremeP.Models
         [Required(ErrorMessage = "El nombre del aeropuerto es requerido")]
         [Display(Name = "Nombre")]
         public string nombre { get; set; }
+
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
     }
 }

@@ -3,6 +3,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Styles {
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" rel="stylesheet" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+}
+
 <div id="fh5co-wrapper">
     <div id="fh5co-page">
         <div class="container mt-5">
@@ -11,31 +22,124 @@
                 <h2 class="text-white">Aeropuerto</h2>
             </div>
         </div>
+
+        <div class="container mt-4">
+            @(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Aeropuerto>()
+                .ID("AeropuertoGrid")
+                .DataSource(ds => ds.WebApi()
+                    .Controller("Aeropuerto")
+                    .LoadAction("Get")
+                    .InsertAction("Post")
+                    .UpdateAction("Put")
+                    .DeleteAction("Delete")
+                    .Key("aeropuertoId")
+                )
+                .RemoteOperations(true)
+                .Columns(columns => {
+                    columns.AddFor(m => m.aeropuertoId);
+                    columns.AddFor(m => m.nombre);
+                    columns.AddFor(m => m.Longitud);
+                    columns.AddFor(m => m.Latitud);
+                })
+                .Editing(e => e
+                    .Mode(GridEditMode.Popup)
+                    .AllowAdding(true)
+                    .AllowUpdating(true)
+                    .AllowDeleting(true)
+                    .UseIcons(true)
+                    .StartEditAction(GridStartEditAction.DblClick)
+                )
+                .OnRowInserted("reloadMapData")
+                .OnRowUpdated("reloadMapData")
+                .OnRowRemoved("reloadMapData")
+            )
+        </div>
+
+        <!-- Mapa de Aeropuertos -->
+        <div class="container mt-5">
+            <h3 class="text-white">Mapa de Aeropuertos</h3>
+            <div id="map"></div>
+        </div>
     </div>
 </div>
 
-@(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Aeropuerto>()
-    .DataSource(ds => ds.WebApi()
-        .Controller("Aeropuerto")
-        .LoadAction("Get")
-        .InsertAction("Post")
-        .UpdateAction("Put")
-        .DeleteAction("Delete")
-        .Key("aeropuertoId")
-    )
-    .RemoteOperations(true)
-    .Columns(columns => {
+@section Scripts {
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <script>
+        var map;
+        var markers = [];  // Array para almacenar los marcadores
 
-        columns.AddFor(m => m.aeropuertoId);
+        // Función para cargar los datos del mapa
+        function loadMapData() {
+            // Eliminar todos los marcadores previos del mapa
+            markers.forEach(function (marker) {
+                marker.setOptions({ visible: false });
+            });
+            markers = [];  // Limpiar el array de marcadores.
 
-        columns.AddFor(m => m.nombre);
-    })
-    .Editing(e => e
-        .Mode(GridEditMode.Popup)
-        .AllowAdding(true)
-        .AllowUpdating(true)
-        .AllowDeleting(true)
-        .UseIcons(true)
-        .StartEditAction(GridStartEditAction.DblClick)
-    )
-)
+            // Obtener los datos del DataGrid
+            const grid = $("#AeropuertoGrid").dxDataGrid("instance");
+            const data = grid.getDataSource().items();
+
+            if (data.length === 0) return;
+
+            // Centrar el mapa en el primer aeropuerto
+            const centro = data[0];
+            map.setCamera({
+                center: [centro.Longitud, centro.Latitud],
+                zoom: 10
+            });
+
+            // Agregar marcadores por cada aeropuerto
+            data.forEach(aeropuerto => {
+                // Verificamos si las coordenadas están disponibles
+                if (aeropuerto.Latitud && aeropuerto.Longitud) {
+                    const marker = new atlas.HtmlMarker({
+                        position: [aeropuerto.Longitud, aeropuerto.Latitud],
+                        text: aeropuerto.nombre ? aeropuerto.nombre[0] : 'A',  // Usamos la primera letra del nombre
+                        color: 'blue'
+                    });
+
+                    // Agregar el marcador a los arrays
+                    markers.push(marker);
+                    map.markers.add(marker);
+
+                    // Crear el popup para cada marcador
+                    const popup = new atlas.Popup({
+                        content: `<div style="padding:10px;"><strong>${aeropuerto.nombre}</strong></div>`,
+                        pixelOffset: [0, -30]
+                    });
+
+                    // Establecer el popup en el marcador
+                    marker.setOptions({
+                        popup: popup
+                    });
+
+                    // Mostrar el popup cuando el marcador sea agregado
+                    popup.open(map, marker.getOptions().position);
+                } else {
+                    console.warn(`Coordenadas faltantes para el aeropuerto: ${aeropuerto.nombre}`);
+                }
+            });
+        }
+
+        function reloadMapData() {
+            // Cargar los datos con un pequeño retraso para asegurar la actualización
+            setTimeout(loadMapData, 500);
+        }
+
+        window.addEventListener('DOMContentLoaded', function () {
+            map = new atlas.Map("map", {
+                center: [-87.6217, 14.3827],  // Ubicación inicial
+                zoom: 7,
+                view: "Auto",
+                authOptions: {
+                    authType: 'subscriptionKey',
+                    subscriptionKey: 'EHVZNTgI2kKlvEv6Z3fFQVvWTQQuMOm6Lx0KITlLJjrPzzwQrqd7JQQJ99BDACYeBjFYfU17AAAgAZMP1c5a' // Asegúrate de usar una clave válida
+                }
+            });
+
+            map.events.add('ready', loadMapData);  // Cargar los marcadores cuando el mapa esté listo
+        });
+    </script>
+}
