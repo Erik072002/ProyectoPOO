@@ -70,6 +70,7 @@ namespace ProyectoAeropuerto.Controllers
         {
             int id = AvionModificado.avionId;
             db.Entry(AvionModificado).State = EntityState.Modified;
+            db.SaveChanges();
 
             return Ok(AvionModificado);
         }
