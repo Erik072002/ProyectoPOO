@@ -111,6 +111,25 @@
         .dx-datagrid-borders > .dx-datagrid-rowsview td {
             border-color: rgba(255, 255, 255, 0.05);
         }
+
+        .status-indicator {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin: 0 5px;
+            border: 2px solid #000;
+        }
+
+            .status-indicator[data-status="true"] {
+                background-color: #4CAF50; 
+                box-shadow: 0 0 5px #4CAF50;
+            }
+
+            .status-indicator[data-status="false"] {
+                background-color: #F44336; 
+                box-shadow: 0 0 5px #F44336;
+            }
     </style>
 
     @RenderSection("Styles", required: false)
@@ -153,14 +172,14 @@
     <div id="mainMenu" class="custom-menu-dropdown" style="display:none">
         <a href="@Url.Action("Index", "Home")" style="display:block; color:white; padding:5px; text-decoration: none;">Inicio</a>
         <a href="@Url.Action("Aeropuerto", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Aeropuertos</a>
-        <a href="@Url.Action("Asiento", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Asientos</a>
-        <a href="@Url.Action("Avion", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Aviones</a>
-        <a href="@Url.Action("MetodoDePago", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Metodo De Pago</a>
-        <a href="@Url.Action("Piloto", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Piloto</a>
-        <a href="@Url.Action("Puerta_Abordaje", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Puerta Abordaje</a>
         <a href="@Url.Action("Terminales", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Terminales</a>
-        <a href="@Url.Action("Tripulacion", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Tripulacion</a>
+        <a href="@Url.Action("Puerta_Abordaje", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Puerta Abordaje</a>
+        <a href="@Url.Action("Avion", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Aviones</a>
+        <a href="@Url.Action("Asiento", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Asientos</a>
         <a href="@Url.Action("Vuelo", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Vuelo</a>
+        <a href="@Url.Action("Piloto", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Piloto</a>
+        <a href="@Url.Action("Tripulacion", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Tripulacion</a>
+        <a href="@Url.Action("MetodoDePago", "Home")" style="display: block; color: white; padding: 5px; text-decoration: none;">Metodo De Pago</a>
     </div>
 
     <div id="mainContent" style="margin-top:80px;">
@@ -172,6 +191,17 @@
             var menu = document.getElementById("mainMenu");
             menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
+
+        function isVueloDisponible(fechaSalida) {
+            const ahora = new Date();
+            const salida = new Date(fechaSalida);
+            return salida > ahora; 
+        }
+
+        setInterval(function () {
+            const grid = $("#gridContainer").dxDataGrid("instance");
+            if (grid) grid.refresh();
+        }, 60000);
     </script>
 
     @RenderSection("scripts", required: false)

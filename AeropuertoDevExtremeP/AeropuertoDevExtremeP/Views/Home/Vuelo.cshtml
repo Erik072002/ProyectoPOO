@@ -49,6 +49,27 @@
         );
 
         columns.AddFor(m => m.Precio).Alignment(HorizontalAlignment.Center);
+
+         columns.Add()
+            .Caption("Estado")
+            .Type(GridCommandColumnType.Buttons)
+            .Buttons(btns => {
+                btns.Add()
+                    .Hint("Estado del vuelo")
+                    .Template(@<text>
+                        <div class="status-indicator"
+                            data-status="<%- isVueloDisponible(data.Fecha_salida) %>">
+                        </div>
+                    </text>);
+                btns.Add()
+                    .Name(GridColumnButtonName.Edit)
+                    .Text("Editar");
+                btns.Add()
+                    .Name(GridColumnButtonName.Delete)
+                    .Text("Eliminar");
+            })
+            .Width(100);
+
     })
     .Editing(e => e
         .Mode(GridEditMode.Popup)
