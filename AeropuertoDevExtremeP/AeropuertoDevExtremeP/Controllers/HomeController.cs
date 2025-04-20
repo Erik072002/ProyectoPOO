@@ -67,5 +67,10 @@ namespace AeropuertoDevExtremeP.Controllers {
         {
             return View();
         }
+
+        public ActionResult Contacto()
+        {
+            return View();
+        }
     }
 }

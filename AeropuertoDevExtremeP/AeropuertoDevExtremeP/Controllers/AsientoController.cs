@@ -89,9 +89,8 @@ namespace AeropuertoDevExtremeP.Controllers
         [HttpPut]
         public async Task<HttpResponseMessage> Put(FormDataCollection form)
         {
-            //Parámetros del form
-            var key = Convert.ToInt32(form.Get("key")); //llave que estoy modificando
-            var values = form.Get("values"); //Los valores que yo modifiqué en formato JSON
+            var key = Convert.ToInt32(form.Get("key"));
+            var values = form.Get("values"); 
 
             var apiUrlGetasiento = "https://localhost:44352/api/Asiento/" + key;
             var respuestaasiento = await GetAsync(apiUrlGetasiento = "https://localhost:44352/api/Asiento/" + key);
