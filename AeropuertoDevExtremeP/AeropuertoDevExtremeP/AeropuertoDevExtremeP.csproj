@@ -254,6 +254,7 @@
     <Content Include="Content\ssc\bootstrap.css.map" />
     <Content Include="Content\ssc\style.css.map" />
     <Content Include="Content\images\.DS_Store" />
+    <None Include="Properties\PublishProfiles\navixweb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.6.3.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.3.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
