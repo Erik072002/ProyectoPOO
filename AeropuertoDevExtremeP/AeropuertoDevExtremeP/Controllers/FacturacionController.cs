@@ -18,7 +18,7 @@ namespace AeropuertoDevExtremeP.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> Get(DataSourceLoadOptions loadOptions)
         {
-            var apiUrl = "https://localhost:44352/api/Facturacion/";
+            var apiUrl = "https://localhost:44352/api/Facturacion";
 
             var respuestaJson = await GetAsync(apiUrl);
             //System.Diagnostics.Debug.WriteLine(respuestaJson); imprimir info
@@ -56,7 +56,7 @@ namespace AeropuertoDevExtremeP.Controllers
 
             var httpContent = new StringContent(values, System.Text.Encoding.UTF8, "application/json");
 
-            var url = "https://localhost:44352/api/Facturacion/";
+            var url = "https://localhost:44352/api/Facturacion";
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             using (var facturacion = new HttpClient(handler))

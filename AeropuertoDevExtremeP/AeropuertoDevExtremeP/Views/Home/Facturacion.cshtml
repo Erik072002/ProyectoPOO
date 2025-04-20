@@ -5,7 +5,7 @@
 
 <div id="fh5co-wrapper">
     <div id="fh5co-page">
-        <div class="container mt-5">
+        <div class="container mt-5 mb-5">
             <div class="text-white text-center p-4 rounded shadow"
                  style="width: 80%; margin: 0 auto; font-size: 2em; background-color: rgba(0, 0, 0, 0.5);">
                 <h2 class="text-white">Facturación</h2>
@@ -16,20 +16,21 @@
 
 <div style="width: 80%; margin: 0 auto;">
     @(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Facturacion>()
+        .ID("gridContainer")
     .DataSource(ds => ds.WebApi()
         .Controller("Facturacion")
         .LoadAction("Get")
         .InsertAction("Post")
         .UpdateAction("Put")
         .DeleteAction("Delete")
-        .Key("facturacionId")
+        .Key("Id")
     )
     .RemoteOperations(true)
     .Paging(p => p.PageSize(10))
     .HeaderFilter(f => f.Visible(true))
     .Columns(columns => {
 
-        columns.AddFor(m => m.facturacionId).Alignment(HorizontalAlignment.Right);
+        columns.AddFor(m => m.Id).Alignment(HorizontalAlignment.Right);
 
         columns.AddFor(m => m.boletoId).Alignment(HorizontalAlignment.Center).Lookup(lookup => lookup
             .DataSource(ds => ds.WebApi().Controller("Boleto").LoadAction("Get").Key("boletoId"))
@@ -43,7 +44,14 @@
             .DataSource(ds => ds.WebApi().Controller("MetodoDePago").LoadAction("Get").Key("metododepagoId"))
             .ValueExpr("metododepagoId")
             .DisplayExpr("Metodo_Pago")
+
         );
+        columns.Add().Type(GridCommandColumnType.Buttons).Buttons(buttons =>
+        {
+            buttons.Add().Name(GridColumnButtonName.Edit);       
+            buttons.Add().Name(GridColumnButtonName.Delete);
+            buttons.Add().Text("PDF").Icon("exportpdf").OnClick("exportarBoletoIndividual");
+        });
     })
     .Editing(e => e
         .Mode(GridEditMode.Popup)
@@ -56,7 +64,7 @@
     .Summary(s => s
     .TotalItems(totalItems =>
     {
-        totalItems.AddFor(m => m.facturacionId)
+        totalItems.AddFor(m => m.Id)
             .SummaryType(SummaryType.Count)
             .Alignment(HorizontalAlignment.Left);
     })
@@ -67,3 +75,26 @@
 )
 )
 </div>
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        async function exportarBoletoIndividual(e) {
+            const jsPDF = window.jspdf.jsPDF;
+            const doc = new jsPDF();
+
+            const data = e.row.data;
+
+            // 🖨️ Personaliza el contenido del PDF aquí
+            doc.setFontSize(16);
+            doc.text("Boleto de Pasajero", 20, 20);
+            doc.setFontSize(12);
+            doc.text(`Factura: ${data.Id}`, 20, 40);
+            doc.text(`Numero de Boleto: ${data.boletoId}`, 20, 50);
+            doc.text(`Fecha de Factura: ${data.Fecha_de_Factura}`, 20, 60);
+            doc.text(`Metodo de Pago: ${data.metododepagoId}`, 20, 70);
+            doc.save(`Factura_${data.facturacionId}.pdf`);
+
+        }
+    </script>
+}

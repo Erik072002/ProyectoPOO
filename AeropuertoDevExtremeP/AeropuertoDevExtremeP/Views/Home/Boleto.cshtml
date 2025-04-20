@@ -5,7 +5,7 @@
 
 <div id="fh5co-wrapper">
     <div id="fh5co-page">
-        <div class="container mt-5">
+        <div class="container mt-5 mb-5">
             <div class="text-white text-center p-4 rounded shadow"
                  style="width: 80%; margin: 0 auto; font-size: 2em; background-color: rgba(0, 0, 0, 0.5);">
                 <h2 class="text-white">Boleto</h2>
@@ -16,6 +16,7 @@
 
 <div style="width: 80%; margin: 0 auto;">
     @(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Boleto>()
+        
     .DataSource(ds => ds.WebApi()
         .Controller("Boleto")
         .LoadAction("Get")
@@ -50,6 +51,12 @@
         );
 
         columns.AddFor(m => m.Pago).Alignment(HorizontalAlignment.Center);
+        columns.Add().Type(GridCommandColumnType.Buttons).Buttons(buttons =>
+        {
+            buttons.Add().Name(GridColumnButtonName.Edit);       
+            buttons.Add().Name(GridColumnButtonName.Delete);
+            
+        });
     })
     .Editing(e => e
         .Mode(GridEditMode.Popup)
@@ -73,3 +80,5 @@
 )
 )
 </div>
+
+

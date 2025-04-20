@@ -9,7 +9,7 @@ namespace AeropuertoDevExtremeP.Models
     public class Facturacion
     {
         [Display(Name = "No")]
-        public int facturacionId { get; set; }
+        public int Id { get; set; }
         public Boleto Boleto { get; set; }
         [Display(Name = "No. Boleto")]
         public int boletoId { get; set; }
