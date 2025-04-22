@@ -1,4 +1,6 @@
 ﻿@{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     ViewData["Title"] = "Facturacion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -48,7 +50,7 @@
         );
         columns.Add().Type(GridCommandColumnType.Buttons).Buttons(buttons =>
         {
-            buttons.Add().Name(GridColumnButtonName.Edit);       
+            buttons.Add().Name(GridColumnButtonName.Edit);
             buttons.Add().Name(GridColumnButtonName.Delete);
             buttons.Add().Text("PDF").Icon("exportpdf").OnClick("exportarBoletoIndividual");
         });
@@ -75,25 +77,37 @@
 )
 )
 </div>
-@section Scripts {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
 
-    <script>
-        async function exportarBoletoIndividual(e) {
-            const jsPDF = window.jspdf.jsPDF;
-            const doc = new jsPDF();
+    async function exportarBoletoIndividual(e) {
+        const { jsPDF } = window.jspdf || window.jspdf?.default || {};
 
-            const data = e.row.data;
-
-            doc.setFontSize(16);
-            doc.text("Boleto de Pasajero", 20, 20);
-            doc.setFontSize(12);
-            doc.text(`Factura: ${data.Id}`, 20, 40);
-            doc.text(`Numero de Boleto: ${data.boletoId}`, 20, 50);
-            doc.text(`Fecha de Factura: ${data.Fecha_de_Factura}`, 20, 60);
-            doc.text(`Metodo de Pago: ${data.metododepagoId}`, 20, 70);
-            doc.save(`Factura_${data.facturacionId}.pdf`);
-
+        if (!jsPDF) {
+            alert("No se pudo cargar jsPDF.");
+            return;
         }
-    </script>
-}
+
+        const doc = new jsPDF();
+
+        const data = e.row.data;  // Obtener los datos de la fila seleccionada
+
+        // Obtener el ID del método de pago directamente desde los datos
+        const metodoPagoId = data.metododepagoId;
+
+        doc.setFontSize(16);
+        doc.text("Boleto de Pasajero", 20, 20);
+
+        doc.setFontSize(12);
+        doc.text(`Factura: ${data.Id}`, 20, 40);
+        doc.text(`Número de Boleto: ${data.boletoId}`, 20, 50);
+        doc.text(`Fecha de Factura: ${data.Fecha_de_Factura}`, 20, 60);
+        doc.text(`Método de Pago ID: ${metodoPagoId}`, 20, 70);
+
+        // Guardar el PDF
+        doc.save(`Factura_${data.Id}.pdf`);
+    }
+
+</script>
+
+
+

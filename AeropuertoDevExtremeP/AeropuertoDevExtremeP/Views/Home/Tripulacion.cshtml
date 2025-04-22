@@ -22,14 +22,14 @@
         .InsertAction("Post")
         .UpdateAction("Put")
         .DeleteAction("Delete")
-        .Key("tripulacionId")
+        .Key("Id")
     )
     .RemoteOperations(true)
     .Paging(p => p.PageSize(10))
     .HeaderFilter(f => f.Visible(true))
     .Columns(columns => {
 
-        columns.AddFor(m => m.tripulacionId).Alignment(HorizontalAlignment.Right);
+        columns.AddFor(m => m.Id).Alignment(HorizontalAlignment.Right);
 
         columns.AddFor(m => m.Cargo).Alignment(HorizontalAlignment.Center);
 
@@ -62,7 +62,7 @@
     .Summary(s => s
     .TotalItems(totalItems =>
     {
-        totalItems.AddFor(m => m.tripulacionId)
+        totalItems.AddFor(m => m.Id)
             .SummaryType(SummaryType.Count)
             .Alignment(HorizontalAlignment.Left);
     })

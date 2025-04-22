@@ -10,7 +10,7 @@ namespace AeropuertoDevExtremeP.Models
     {
         [Display(Name = "No")]
         [Key]
-        public int tripulacionId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "El cargo  es requerido")]
         [Display(Name = "Cargo")]
