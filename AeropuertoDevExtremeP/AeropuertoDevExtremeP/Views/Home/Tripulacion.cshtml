@@ -37,7 +37,7 @@
             .DataSource(ds => ds.WebApi().Controller("Vuelo").LoadAction("Get").Key("vueloId"))
             .ValueExpr("vueloId")
             .DisplayExpr("vueloId")
-        ); ;
+        );
 
         columns.AddFor(m => m.Nombre).Alignment(HorizontalAlignment.Center);
 

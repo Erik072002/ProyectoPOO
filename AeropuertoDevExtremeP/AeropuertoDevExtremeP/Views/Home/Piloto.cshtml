@@ -16,24 +16,30 @@
 
 <div style="width: 100%; margin: 0 auto;">
     @(Html.DevExtreme().DataGrid<AeropuertoDevExtremeP.Models.Piloto>()
-    .DataSource(ds => ds.WebApi()
-        .Controller("Piloto")
-        .LoadAction("Get")
-        .InsertAction("Post")
-        .UpdateAction("Put")
-        .DeleteAction("Delete")
-        .Key("pilotoId")
-    )
-    .RemoteOperations(true)
-    .Paging(p => p.PageSize(10))
-    .HeaderFilter(f => f.Visible(true))
-    .Columns(columns => {
+            .DataSource(ds => ds.WebApi()
+                .Controller("Piloto")
+                .LoadAction("Get")
+                .InsertAction("Post")
+                .UpdateAction("Put")
+                .DeleteAction("Delete")
+                .Key("pilotoId")
+            )
+            .RemoteOperations(true)
+            .Paging(p => p.PageSize(10))
+            .HeaderFilter(f => f.Visible(true))
+            .Columns(columns => {
 
-        columns.AddFor(m => m.pilotoId).Alignment(HorizontalAlignment.Right);
+            columns.AddFor(m => m.pilotoId).Alignment(HorizontalAlignment.Right);
 
-        columns.AddFor(m => m.AerolineaAsignada).Alignment(HorizontalAlignment.Center);
+            columns.AddFor(m => m.AerolineaAsignada).Alignment(HorizontalAlignment.Center);
 
-        columns.AddFor(m => m.AniosdeExperiencia).Alignment(HorizontalAlignment.Center);
+            columns.AddFor(m => m.AniosdeExperiencia).Alignment(HorizontalAlignment.Center);
+
+            columns.AddFor(m => m.vueloId).Alignment(HorizontalAlignment.Center).Lookup(lookup => lookup
+                .DataSource(ds => ds.WebApi().Controller("Vuelo").LoadAction("Get").Key("vueloId"))
+                .ValueExpr("vueloId")
+                .DisplayExpr("vueloId")
+                );
 
         columns.AddFor(m => m.Nombre).Alignment(HorizontalAlignment.Center);
 

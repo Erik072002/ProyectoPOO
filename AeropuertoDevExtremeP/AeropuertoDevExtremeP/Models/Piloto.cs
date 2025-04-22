@@ -18,5 +18,8 @@ namespace AeropuertoDevExtremeP.Models
         [Required(ErrorMessage = "Los años de experiencia son requeridos")]
         [Display(Name = "Años de experiencia")]
         public int AniosdeExperiencia { get; set; }
+
+        public Vuelo VueloAsignado { get; set; }
+        public int vueloId { get; set; }
     }
 }
