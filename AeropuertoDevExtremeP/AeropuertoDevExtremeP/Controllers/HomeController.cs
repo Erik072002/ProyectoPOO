@@ -72,5 +72,10 @@ namespace AeropuertoDevExtremeP.Controllers {
         {
             return View();
         }
+
+        public ActionResult ManualUsuario()
+        {
+            return View();
+        }
     }
 }

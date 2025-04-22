@@ -411,6 +411,7 @@
     <Content Include="Views\Home\Puerta_Abordaje.cshtml" />
     <Content Include="Views\Home\Tripulacion.cshtml" />
     <Content Include="Views\Home\Contacto.cshtml" />
+    <Content Include="Views\Home\ManualUsuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
