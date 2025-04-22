@@ -1,4 +1,5 @@
 ﻿using ProyectoAeropuerto.Models;
+using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,6 +13,66 @@ namespace ProyectoAeropuerto.Controllers
     public class VueloController : ApiController
     {
         private MiDbContext db = new MiDbContext();
+
+        /// <summary>
+        /// Devulve los valores segun un rango de fechas ingresados
+        /// </summary>
+        /// <param name="FechaDesde"></param>
+        /// <param name="FechaHasta"></param>
+        /// <returns>JSON Vuelo</returns>
+        /// <response code = "200"> Devuelve si  los valores fueron encontrados</response>
+        /// <response code = "404"> Devuelve si  los valores no fueron encontrado</response>
+        [HttpGet]
+        [SwaggerOperation("Vuelo-por-Fecha")]
+        [Route("api/GetVueloFecha")]
+
+        public IHttpActionResult GetVueloFecha(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            var query = from vuelo in db.Vuelo
+                        join avion in db.Avion on vuelo.Avion equals avion
+                        join aeropuerto in db.Aeropuerto on vuelo.Puerta_Abordaje.Terminales.Aeropuerto equals aeropuerto
+                        join terminales in db.Terminales on vuelo.Puerta_Abordaje.Terminales equals terminales
+
+                        where vuelo.Fecha_salida >= FechaDesde && vuelo.Fecha_Llegada <= FechaHasta
+                        select new
+                        {
+                            Avion = vuelo.Avion.avionId,
+                            Aeropuerto = vuelo.Puerta_Abordaje.Terminales.Aeropuerto.nombre,
+                            Terminales = vuelo.Puerta_Abordaje.Terminales.Nombre_Area
+                        };
+
+            return Ok(query);
+        }
+
+        /// <summary>
+        /// Devuelve la lista de vuelos que a tenido un avion
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>JSON Vuelo</returns>
+        /// <response code = "200"> Devuelve si  los valores fueron encontrados</response>
+        /// <response code = "404"> Devuelve si  los valores no fueron encontrado</response>
+
+        [HttpGet]
+        [SwaggerOperation("Vuelo-por-Avion")]
+        [Route("api/GetVueloAvion")]
+
+        public IHttpActionResult GetVueloAvion(int id)
+        {
+            var query = from vuelo in db.Vuelo
+                        join avion in db.Avion on vuelo.Avion equals avion
+                        join aeropuerto in db.Aeropuerto on vuelo.Puerta_Abordaje.Terminales.Aeropuerto equals aeropuerto
+                        join terminales in db.Terminales on vuelo.Puerta_Abordaje.Terminales equals terminales
+
+                        where vuelo.Avion.avionId == id
+                        select new
+                        {
+                            Vuelo = vuelo.vueloId,
+                            Aeropuerto = vuelo.Puerta_Abordaje.Terminales.Aeropuerto.nombre,
+                            Terminal = vuelo.Puerta_Abordaje.Terminales.Nombre_Area
+                        };
+
+            return Ok(query);
+        }
 
         /// <summary>
         ///  Muestra todos los Vuelo

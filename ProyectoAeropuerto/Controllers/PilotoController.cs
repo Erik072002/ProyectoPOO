@@ -1,4 +1,5 @@
 ﻿using ProyectoAeropuerto.Models;
+using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,6 +13,66 @@ namespace ProyectoAeropuerto.Controllers
     public class PilotoController : ApiController
     {
         private MiDbContext db = new MiDbContext();
+
+        /// <summary>
+        /// Devuelve los pilotos segun la ID del vuelo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>JSON Piloto</returns>
+        /// <response code="200">Devuelve los valores encontrado</response>
+        /// <response code="404">Si el valor no es encontrado</response>
+
+        [HttpGet]
+        [SwaggerOperation("Piloto-por-Vuelo")]
+        [Route("api/GetPilotoVuelo")]
+
+        public IHttpActionResult GetPilotoVuelo(int id)
+        {
+            var query = from piloto in db.Piloto
+                        join vuelo in db.Vuelo on piloto.VueloAsignado equals vuelo
+                        join avion in db.Avion on piloto.VueloAsignado.Avion equals avion
+                        join aeropuerto in db.Aeropuerto on piloto.VueloAsignado.Puerta_Abordaje.Terminales.Aeropuerto equals aeropuerto
+
+                        where piloto.VueloAsignado.vueloId == id
+
+                        select new
+                        {
+                            Vuelo = piloto.vueloId,
+                            Avion = piloto.VueloAsignado.Avion.Nombre,
+                            Aeropuerto = piloto.VueloAsignado.Puerta_Abordaje.Terminales.Aeropuerto.nombre
+                        };
+            return Ok(query);
+        }
+
+        /// <summary>
+        /// Devuelve los pilotos segun la ID del avion
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>JSON Piloto</returns>
+        /// <response code="200">Devuelve los valores encontrado</response>
+        /// <response code="404">Si el valor no es encontrado</response>
+
+        [HttpGet]
+        [SwaggerOperation("Piloto-por-Avion")]
+        [Route("api/GetPilotoAvion")]
+
+        public IHttpActionResult GetPilotoAvion(int id)
+        {
+            var query = from piloto in db.Piloto
+                        join vuelo in db.Vuelo on piloto.VueloAsignado equals vuelo
+                        join avion in db.Avion on piloto.VueloAsignado.Avion equals avion
+                        join aeropuerto in db.Aeropuerto on piloto.VueloAsignado.Puerta_Abordaje.Terminales.Aeropuerto equals aeropuerto
+
+                        where piloto.VueloAsignado.avionId == id
+
+                        select new
+                        {
+                            Vuelo = piloto.vueloId,
+                            Avion = piloto.VueloAsignado.Avion.Nombre,
+                            Aeropuerto = piloto.VueloAsignado.Puerta_Abordaje.Terminales.Aeropuerto.nombre
+                        };
+            return Ok(query);
+        }
 
 
         /// <summary>
